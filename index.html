@@ -1,0 +1,2438 @@
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>María Zabay — Periodista, Presentadora y Escritora -</title>
+    <meta
+      name="description"
+      content="María Zabay: periodista con más de 1.000 entrevistas. Presenta El Foco en OKDiario. Ha entrevistado a Pérez-Reverte, Paco de Lucía, Savater, Vico. 14 libros publicados."
+    />
+    <meta
+      name="keywords"
+      content="María Zabay, entrevistas, periodista, presentadora, El Foco, OKDiario, entrevistas filosofía, entrevistas virales, Pérez-Reverte, Vico filósofo"
+    />
+    <meta
+      property="og:title"
+      content="María Zabay — Periodista, Presentadora y Escritora"
+    />
+    <meta
+      property="og:description"
+      content="Más de 1.000 entrevistas en profundidad con las figuras que marcan nuestro tiempo."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="imagenes/img_muestra.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      name="twitter:image"
+      content="imagenes/img_muestra.jpg"
+    />
+    <meta property="og:url" content="https://www.mariazabay.com" />
+    <link rel="canonical" href="https://www.mariazabay.com" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='white'/><text x='32' y='44' text-anchor='middle' font-family='Georgia' font-size='26' font-style='italic' fill='black'>MZ</text></svg>"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --gold: #b5854a;
+        --gl: #d4a96a;
+        --dark: #0f0f0f;
+        --mid: #555;
+        --light: #999;
+        --rule: #e8e8e4;
+        --gp: #f8f3ec;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Jost", sans-serif;
+        font-size: 18px;
+        line-height: 1.75;
+        color: #0f0f0f;
+        background: #fff;
+        overflow-x: hidden;
+      }
+      .page-container {
+        max-width: 1024px;
+        margin: 0 auto;
+      }
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 60px;
+        background: #fff;
+        box-shadow: 0 1px 0 var(--rule);
+        transition: all 0.3s;
+      }
+      nav.sc {
+        padding: 12px 60px;
+      }
+      .nl {
+        font-family: "EB Garamond", serif;
+        font-size: 1.05rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #0f0f0f;
+        text-decoration: none;
+      }
+      .nlinks {
+        display: flex;
+        gap: 32px;
+        list-style: none;
+      }
+      .nlinks a {
+        font-size: 0.72rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--mid);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .nlinks a:hover {
+        color: var(--gold);
+      }
+      .hbg {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 4px;
+      }
+      .hbg span {
+        display: block;
+        width: 22px;
+        height: 1.5px;
+        background: #0f0f0f;
+        transition: all 0.3s;
+      }
+      .hbg.open span:nth-child(1) {
+        transform: translateY(6.5px) rotate(45deg);
+      }
+      .hbg.open span:nth-child(2) {
+        opacity: 0;
+      }
+      .hbg.open span:nth-child(3) {
+        transform: translateY(-6.5px) rotate(-45deg);
+      }
+      .drawer {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: #fff;
+        z-index: 99;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .drawer.open {
+        display: flex;
+      }
+      .drawer a {
+        font-family: "EB Garamond", serif;
+        font-size: 2.4rem;
+        color: #0f0f0f;
+        text-decoration: none;
+        padding: 16px 0;
+        width: 75%;
+        text-align: center;
+        border-bottom: 1px solid var(--rule);
+        transition: color 0.2s;
+      }
+      .drawer a:hover {
+        color: var(--gold);
+      }
+      .drawer-x {
+        position: absolute;
+        top: 22px;
+        right: 28px;
+        background: none;
+        border: none;
+        font-size: 26px;
+        cursor: pointer;
+        color: var(--mid);
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: 55% 45%;
+        min-height: 100vh;
+        padding-top: 57px;
+      }
+      .hero-img {
+        position: relative;
+        overflow: hidden;
+        background: #111;
+      }
+      .hero-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 20%;
+        display: block;
+        transition: transform 0.6s ease;
+      }
+      .badge {
+        position: absolute;
+        bottom: 32px;
+        left: 32px;
+        z-index: 2;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 12px 20px;
+        background: rgba(10, 10, 10, 0.55);
+        backdrop-filter: blur(14px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        max-width: calc(100% - 64px);
+      }
+      .badge-dot {
+        width: 6px;
+        height: 6px;
+        background: var(--gl);
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+        flex-shrink: 0;
+        margin-top: 4px;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.3;
+          transform: scale(1.8);
+        }
+      }
+      .badge-main {
+        font-size: 0.72rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.9);
+      }
+      .badge-sub {
+        font-size: 0.6rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.45);
+        margin-top: 4px;
+      }
+      .hero-r {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 60px 60px 60px 64px;
+        background: #fff;
+        position: relative;
+      }
+      .hero-r::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 15%;
+        bottom: 15%;
+        width: 1px;
+        background: linear-gradient(
+          to bottom,
+          transparent,
+          var(--rule),
+          transparent
+        );
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .eyebrow {
+        font-size: 0.68rem;
+        letter-spacing: 0.4em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 24px;
+        opacity: 0;
+        animation: fadeUp 0.8s 0.3s forwards;
+      }
+      .hname {
+        font-family: "EB Garamond", serif;
+        font-size: clamp(3.5rem, 5.5vw, 6.2rem);
+        font-weight: 300;
+        line-height: 0.88;
+        color: #0f0f0f;
+        opacity: 0;
+        animation: fadeUp 0.8s 0.5s forwards;
+      }
+      .hname em {
+        font-style: italic;
+        color: var(--gold);
+        display: block;
+      }
+      .hquote {
+        font-family: "EB Garamond", serif;
+        font-size: clamp(1.25rem, 1.8vw, 2rem);
+        font-style: italic;
+        color: var(--mid);
+        line-height: 1.5;
+        margin: 16px 0 26px;
+        opacity: 0;
+        animation: fadeUp 0.8s 0.65s forwards;
+      }
+      .divider {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+        opacity: 0;
+        animation: fadeUp 0.8s 0.78s forwards;
+      }
+      .divider::before,
+      .divider::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--rule);
+      }
+      .divider span {
+        font-size: 0.58rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--light);
+        white-space: nowrap;
+      }
+      .roles {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin-bottom: 32px;
+        opacity: 0;
+        animation: fadeUp 0.8s 0.9s forwards;
+      }
+      .role {
+        font-family: "EB Garamond", serif;
+        font-size: 1.25rem;
+        font-style: italic;
+        color: var(--mid);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .role::before {
+        content: "";
+        width: 18px;
+        height: 1px;
+        background: var(--gold);
+        flex-shrink: 0;
+      }
+      .ctas {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        opacity: 0;
+        animation: fadeUp 0.8s 1.05s forwards;
+      }
+      .btn-d {
+        display: inline-block;
+        padding: 12px 28px;
+        background: #0f0f0f;
+        color: #fff;
+        font-size: 0.68rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border: 1px solid #0f0f0f;
+        transition: all 0.25s;
+      }
+      .btn-d:hover {
+        background: var(--gold);
+        border-color: var(--gold);
+      }
+      .btn-o {
+        display: inline-block;
+        padding: 12px 28px;
+        background: transparent;
+        color: #0f0f0f;
+        font-size: 0.68rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border: 1px solid var(--rule);
+        transition: all 0.25s;
+      }
+      .btn-o:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+      .sec {
+        padding: 88px 60px;
+        border-top: 1px solid var(--rule);
+      }
+      .sec-dark {
+        background: var(--dark);
+        border-top: none;
+        padding: 88px 60px;
+      }
+      .sey {
+        font-size: 0.65rem;
+        letter-spacing: 0.4em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 10px;
+      }
+      .sh {
+        font-family: "EB Garamond", serif;
+        font-weight: 300;
+        font-size: clamp(2rem, 3vw, 2.8rem);
+        line-height: 1.1;
+        color: #0f0f0f;
+      }
+      .sh em {
+        font-style: italic;
+        color: var(--gold);
+      }
+      .sh-w {
+        color: #fff;
+      }
+      .about-inner {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .bq {
+        font-family: "EB Garamond", serif;
+        font-size: 1.3rem;
+        font-style: italic;
+        color: #222;
+        line-height: 1.6;
+        padding-left: 20px;
+        border-left: 2px solid var(--gold);
+        margin: 20px 0 28px;
+      }
+      .bp {
+        font-size: 0.95rem;
+        color: #333;
+        line-height: 1.9;
+        margin-bottom: 14px;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        background: var(--rule);
+        border-top: 1px solid var(--rule);
+        border-bottom: 1px solid var(--rule);
+      }
+      .stat {
+        background: #fff;
+        padding: 36px 24px;
+        text-align: center;
+        text-decoration: none;
+        display: block;
+        color: #0f0f0f;
+        transition: background 0.25s;
+      }
+      .stat:hover {
+        background: var(--gp);
+      }
+      .stat-n {
+        font-family: "EB Garamond", serif;
+        font-size: 3rem;
+        font-weight: 300;
+        color: var(--gold);
+        line-height: 1;
+      }
+      .stat-l {
+        font-size: 0.62rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--light);
+        margin-top: 8px;
+      }
+      .foco-img img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .foco-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 64px;
+        align-items: center;
+        padding: 60px;
+      }
+      .foco-desc {
+        font-family: "EB Garamond", serif;
+        font-size: 1.05rem;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.44);
+        line-height: 1.75;
+        margin: 12px 0 22px;
+      }
+      .pc {
+        display: block;
+        text-decoration: none;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 36px;
+        background: rgba(255, 255, 255, 0.03);
+        transition: all 0.3s;
+      }
+      .pc:hover {
+        border-color: var(--gold);
+      }
+      .pc-hd {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+      .pc-play {
+        width: 52px;
+        height: 52px;
+        background: var(--gold);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .pc-arr {
+        width: 0;
+        height: 0;
+        border-top: 9px solid transparent;
+        border-bottom: 9px solid transparent;
+        border-left: 16px solid #fff;
+        margin-left: 3px;
+      }
+      .pc-lbl {
+        font-size: 0.6rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--gl);
+        margin-bottom: 4px;
+      }
+      .pc-title {
+        font-family: "EB Garamond", serif;
+        font-size: 1.3rem;
+        color: #fff;
+      }
+      .pc-desc {
+        font-family: "EB Garamond", serif;
+        font-size: 0.95rem;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.38);
+        line-height: 1.6;
+        margin-bottom: 18px;
+      }
+      .pc-cta {
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+      .gal-grid {
+        display: grid;
+        grid-template-columns: 1.7fr 1fr;
+        grid-template-rows: 240px 240px;
+        gap: 6px;
+        margin-top: 40px;
+      }
+      .gp {
+        overflow: hidden;
+        background: #ccc;
+        cursor: pointer;
+      }
+      .gp img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+      .gp:hover img {
+        transform: scale(1.04);
+      }
+      .gp.tall {
+        grid-row: span 2;
+      }
+      .vid {
+        position: relative;
+        cursor: pointer;
+        margin-top: 20px;
+        overflow: hidden;
+      }
+      .vid img {
+        width: 100%;
+        display: block;
+      }
+      .vid-play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 68px;
+        height: 68px;
+        background: rgba(181, 133, 74, 0.88);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+      }
+      .vid-arr {
+        width: 0;
+        height: 0;
+        border-top: 14px solid transparent;
+        border-bottom: 14px solid transparent;
+        border-left: 24px solid #fff;
+        margin-left: 4px;
+      }
+      .vid-lbl {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 16px 22px;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.65));
+      }
+      .vid-lbl p {
+        font-family: "EB Garamond", serif;
+        font-size: 1rem;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.88);
+        margin: 0;
+      }
+      .iw-hd {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 48px;
+      }
+      .iw-hd a {
+        font-size: 0.68rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold);
+        text-decoration: none;
+      }
+      .igrid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 28px;
+        grid-auto-rows: 180px;
+      }
+      .icard {
+        position: relative;
+        cursor: pointer;
+        overflow: hidden;
+        background: #111;
+        border-radius: 2px;
+        transform: perspective(900px) rotateY(-5deg) rotateX(1deg);
+        box-shadow:
+          0 10px 30px rgba(0, 0, 0, 0.18),
+          0 24px 50px rgba(0, 0, 0, 0.13);
+        transition:
+          transform 0.4s ease,
+          box-shadow 0.4s ease;
+      }
+      .icard:hover {
+        transform: perspective(900px) rotateY(0) rotateX(0) translateY(-8px);
+        box-shadow:
+          0 20px 50px rgba(0, 0, 0, 0.24),
+          0 40px 80px rgba(0, 0, 0, 0.16);
+      }
+      .ic-big {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+      .ic-big .ic-img {
+        height: 100%;
+      }
+      .ic-img {
+        overflow: hidden;
+        height: 180px;
+      }
+      .ic-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+        filter: brightness(0.7) saturate(0.85);
+        transition:
+          transform 0.5s ease,
+          filter 0.4s;
+      }
+      .icard:hover .ic-img img {
+        transform: scale(1.04);
+        filter: brightness(0.58) saturate(0.95);
+      }
+      .ic-over {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(5, 5, 5, 0.96) 0%,
+          rgba(5, 5, 5, 0.2) 50%,
+          transparent 80%
+        );
+        pointer-events: none;
+      }
+      .ic-info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 12px 12px;
+      }
+      .ic-cat {
+        font-size: 0.56rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--gl);
+        display: block;
+        margin-bottom: 5px;
+      }
+      .ic-name {
+        font-family: "EB Garamond", serif;
+        color: #fff;
+        line-height: 1.05;
+        margin-bottom: 4px;
+        font-weight: 400;
+        font-size: clamp(0.9rem, 1.2vw, 1.15rem);
+        text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+      }
+      .ic-big .ic-name {
+        font-size: clamp(2rem, 3vw, 2.8rem);
+      }
+      .ic-q {
+        font-family: "EB Garamond", serif;
+        font-size: 0.75rem;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.45);
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .praise {
+        background: var(--gp);
+        border-top: 1px solid rgba(181, 133, 74, 0.12);
+      }
+      .pgrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+        margin-top: 36px;
+      }
+      .pcard {
+        padding: 28px;
+        background: #fff;
+        border-top: 2px solid var(--gold);
+      }
+      .pcard q {
+        font-family: "EB Garamond", serif;
+        font-size: 1.05rem;
+        font-style: italic;
+        color: #0f0f0f;
+        line-height: 1.65;
+        quotes: "«" "»";
+      }
+      .pcard-by {
+        margin-top: 12px;
+        font-size: 0.65rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+      .books-hd {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 48px;
+      }
+      .bgrid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px 14px;
+      }
+      .bcard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .bk3d {
+        position: relative;
+        width: 120px;
+        height: 180px;
+        margin: 0 auto 14px;
+        transform: perspective(700px) rotateY(-22deg);
+        transition: transform 0.4s ease;
+        filter: drop-shadow(8px 16px 28px rgba(0, 0, 0, 0.3));
+      }
+      .bcard:hover .bk3d {
+        transform: perspective(700px) rotateY(-8deg);
+      }
+      .bk-f {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 120px;
+        height: 180px;
+        overflow: hidden;
+      }
+      .bk-f img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .bk-sh {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          120deg,
+          rgba(255, 255, 255, 0.18) 0%,
+          transparent 45%,
+          rgba(0, 0, 0, 0.08) 100%
+        );
+        pointer-events: none;
+      }
+      .bk-sp {
+        position: absolute;
+        top: 0;
+        left: -15px;
+        width: 15px;
+        height: 180px;
+        background: linear-gradient(to right, #080808, #1e1e1e, #111);
+        transform: rotateY(-90deg);
+        transform-origin: right center;
+      }
+      .bk-t {
+        font-family: "EB Garamond", serif;
+        font-size: 0.9rem;
+        font-style: italic;
+        color: #0f0f0f;
+        text-align: center;
+        line-height: 1.3;
+        margin-bottom: 3px;
+      }
+      .bk-g {
+        font-size: 0.6rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--light);
+        text-align: center;
+        margin-bottom: 8px;
+      }
+      .buy {
+        font-size: 0.62rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gold);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(181, 133, 74, 0.25);
+        padding-bottom: 1px;
+      }
+      .cf {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        max-width: 560px;
+        margin-top: 28px;
+      }
+      .cfr {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .cfg {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .cfl {
+        font-size: 0.6rem;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .cfi,
+      .cfta {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        color: rgba(255, 255, 255, 0.88);
+        padding: 11px 14px;
+        font-family: "Jost", sans-serif;
+        font-size: 0.9rem;
+        outline: none;
+        transition: border-color 0.25s;
+        width: 100%;
+      }
+      .cfi:focus,
+      .cfta:focus {
+        border-color: var(--gold);
+      }
+      .cfta {
+        height: 96px;
+        resize: none;
+      }
+      .cfi::placeholder,
+      .cfta::placeholder {
+        color: rgba(255, 255, 255, 0.32);
+      }
+      .cfsb {
+        background: var(--gold);
+        color: var(--dark);
+        border: none;
+        padding: 12px 30px;
+        font-family: "Jost", sans-serif;
+        font-size: 0.68rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: background 0.25s;
+        align-self: flex-start;
+      }
+      .cfsb:hover {
+        background: var(--gl);
+      }
+      .fs-ok {
+        display: none;
+        font-family: "EB Garamond", serif;
+        font-size: 1.1rem;
+        font-style: italic;
+        color: var(--gl);
+        padding: 20px 0;
+      }
+      footer {
+        background: #080808;
+        padding: 24px 60px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .ft {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 14px;
+      }
+      .fc {
+        font-size: 0.72rem;
+        color: rgba(255, 255, 255, 0.18);
+      }
+      .fsoc {
+        display: flex;
+        gap: 24px;
+      }
+      .fsoc a {
+        font-size: 0.68rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.22);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .fsoc a:hover {
+        color: var(--gl);
+      }
+      .fleg {
+        padding-top: 14px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .fleg a {
+        font-size: 0.62rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.2);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .fleg a:hover {
+        color: var(--gl);
+      }
+      .modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.88);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .modal.open {
+        display: flex;
+      }
+      .mbox {
+        background: #fff;
+        max-width: 680px;
+        width: 100%;
+        max-height: 82vh;
+        overflow-y: auto;
+        padding: 48px;
+        position: relative;
+      }
+      .mclose {
+        position: absolute;
+        top: 14px;
+        right: 16px;
+        background: none;
+        border: none;
+        font-size: 22px;
+        cursor: pointer;
+        color: #aaa;
+      }
+      .mbox h2 {
+        font-family: "EB Garamond", serif;
+        font-size: 1.7rem;
+        margin-bottom: 20px;
+      }
+      .mbox p {
+        font-size: 0.9rem;
+        line-height: 1.82;
+        color: #444;
+        margin-bottom: 14px;
+      }
+      .mbox a {
+        color: var(--gold);
+      }
+      /* YT MODAL */
+      .ytmodal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.92);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .ytmodal.open {
+        display: flex;
+      }
+      @media (max-width: 1100px) {
+        .bgrid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+        .igrid {
+          grid-template-columns: repeat(3, 1fr);
+          grid-auto-rows: 160px;
+        }
+        .ic-big {
+          grid-column: span 2;
+          grid-row: span 2;
+        }
+      }
+      @media (max-width: 900px) {
+        nav {
+          padding: 14px 24px;
+        }
+        nav.sc {
+          padding: 10px 24px;
+        }
+        .nlinks {
+          display: none;
+        }
+        .hbg {
+          display: flex;
+        }
+        .hero {
+          grid-template-columns: 1fr;
+          padding-top: 54px;
+        }
+        .hero-img {
+          height: 56vw;
+          min-height: 200px;
+        }
+        .hero-r {
+          padding: 36px 24px 48px;
+        }
+        .badge {
+          bottom: 14px;
+          left: 14px;
+          max-width: calc(100% - 28px);
+        }
+        .sec,
+        .sec-dark {
+          padding: 64px 24px;
+        }
+        .foco-grid {
+          grid-template-columns: 1fr;
+          gap: 36px;
+          padding: 48px 24px;
+        }
+        .gal-grid {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: auto;
+        }
+        .gp.tall {
+          grid-row: span 1;
+          height: 180px;
+        }
+        .gp {
+          height: 180px;
+        }
+        .igrid {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 14px;
+          grid-auto-rows: 140px;
+        }
+        .ic-big {
+          grid-column: span 2;
+          grid-row: span 2;
+        }
+        .bgrid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .bk3d {
+          width: 100px;
+          height: 150px;
+        }
+        .bk-f {
+          width: 100px;
+          height: 150px;
+        }
+        .bk-sp {
+          height: 150px;
+          left: -13px;
+          width: 13px;
+        }
+        .stats {
+          grid-template-columns: 1fr 1fr;
+        }
+        .pgrid {
+          grid-template-columns: 1fr;
+        }
+        footer {
+          padding: 20px 24px;
+        }
+        .cfr {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 600px) {
+        .hero-img {
+          height: 62vw;
+        }
+        .hero-r {
+          padding: 28px 16px 40px;
+        }
+        .hname {
+          font-size: clamp(2.8rem, 12vw, 4rem);
+        }
+        .hquote {
+          font-size: 1.1rem;
+        }
+        .sec,
+        .sec-dark {
+          padding: 48px 16px;
+        }
+        .foco-grid {
+          padding: 40px 16px;
+        }
+        .gal-grid {
+          grid-template-columns: 1fr;
+        }
+        .gp,
+        .gp.tall {
+          height: 52vw;
+          grid-row: span 1;
+        }
+        .igrid {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 10px;
+          grid-auto-rows: 120px;
+        }
+        .ic-big {
+          grid-column: span 2;
+          grid-row: span 2;
+        }
+        .ic-name {
+          font-size: 0.8rem !important;
+        }
+        .ic-cat {
+          font-size: 0.48rem;
+        }
+        .ic-info {
+          padding: 8px 8px;
+        }
+        .ic-big .ic-name {
+          font-size: 1.2rem !important;
+        }
+        .bgrid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 18px 10px;
+        }
+        .bk3d {
+          width: 88px;
+          height: 132px;
+        }
+        .bk-f {
+          width: 88px;
+          height: 132px;
+        }
+        .bk-sp {
+          height: 132px;
+          left: -11px;
+          width: 11px;
+        }
+        .stat {
+          padding: 28px 12px;
+        }
+        .stat-n {
+          font-size: 2.4rem;
+        }
+        footer {
+          padding: 16px;
+        }
+        .cfr {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 380px) {
+        .bgrid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .hname {
+          font-size: clamp(2.4rem, 14vw, 3.2rem);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="nav">
+      <a href="#" class="nl">María Zabay</a>
+      <ul class="nlinks">
+        <li><a href="#sobre">Biografía</a></li>
+        <li><a href="#elfoco">El Foco</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#entrevistas">Entrevistas</a></li>
+        <li><a href="#libros">Libros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <button class="hbg" id="hbg">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="drawer" id="drawer">
+      <button class="drawer-x" id="dx">✕</button>
+      <a href="#sobre">Biografía</a>
+      <a href="#elfoco">El Foco</a>
+      <a href="#galeria">Galería</a>
+      <a href="#entrevistas">Entrevistas</a>
+      <a href="#libros">Libros</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+
+    <div class="page-container">
+      <section class="hero" id="inicio">
+        <div class="hero-img">
+          <img
+            src="imagenes/hero.jpg"
+            alt="María Zabay"
+            style="
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              object-position: center 20%;
+              display: block;
+            "
+          />
+          <div class="badge">
+            <div class="badge-dot"></div>
+            <div>
+              <div class="badge-main">
+                Entrevistas en profundidad a quienes están marcando nuestro
+                tiempo
+              </div>
+              <div class="badge-sub">Periodista · Escritora · Presentadora</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-r">
+          <p class="eyebrow">Zaragoza · España · 20 años de periodismo</p>
+          <h1 class="hname">María<em>Zabay</em></h1>
+          <p class="hquote">
+            &ldquo;Me interesan las respuestas que dicen algo real&rdquo;
+          </p>
+          <div class="divider"><span>Trayectoria</span></div>
+          <div class="roles">
+            <span class="role">Periodista · +1.000 entrevistas</span>
+            <span class="role">Presentadora · TV</span>
+            <span class="role">Escritora · 14 libros</span>
+          </div>
+          <div class="ctas">
+            <a href="#elfoco" class="btn-d">El Foco</a>
+            <a href="#libros" class="btn-o">Mis libros</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec" id="sobre">
+        <div class="about-inner">
+          <h2 class="sh">
+            Entender antes que opinar.<br /><em>Preguntar hasta incomodar.</em>
+          </h2>
+          <blockquote class="bq">
+            Convierte temas complejos en conversaciones claras, inteligentes y
+            relevantes.
+          </blockquote>
+          <p class="bp">
+            Más de <strong>1.000 entrevistas</strong> en dos décadas con las
+            figuras que han marcado la cultura, la política y el pensamiento. Ha
+            entrevistado a <strong>Paco de Lucía</strong> en una de sus últimas
+            apariciones, a <strong>Arturo Pérez-Reverte</strong> y al científico
+            <strong>Carlos López Otín</strong>, entre otros.
+          </p>
+          <p class="bp">
+            Dirige y presenta <strong>El Foco</strong> en OKDiario. Autora de
+            <strong>14 libros</strong> publicados en <strong>Almuzara</strong>,
+            <strong>Planeta</strong> y <strong>Penguin Random House</strong>.
+          </p>
+        </div>
+      </section>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-n">+1.000</div>
+          <div class="stat-l">Entrevistas en 20 años</div>
+        </div>
+        <a
+          href="https://www.instagram.com/maria_zabay/"
+          target="_blank"
+          class="stat"
+          ><div class="stat-n">86K</div>
+          <div class="stat-l">Seguidores Instagram ↗</div></a
+        >
+        <div class="stat">
+          <div class="stat-n">14</div>
+          <div class="stat-l">Libros publicados</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">7</div>
+          <div class="stat-l">Novelas</div>
+        </div>
+      </div>
+
+      <section class="sec-dark" id="elfoco">
+        <div class="foco-img">
+          <img
+            src="imagenes/bio.jpg"
+            alt="El Foco de María Zabay"
+            style="width: 100%; height: auto; display: block"
+          />
+        </div>
+        <div class="foco-grid">
+          <div>
+            <p class="sey" style="color: var(--gl)">En vídeo</p>
+            <h2 class="sh sh-w">El Foco</h2>
+            <p class="foco-desc">
+              Más de 1.000 entrevistas avalan la mirada única de María Zabay.
+            </p>
+            <a
+              href="https://okdiario.com/autor/maria-zabay/"
+              target="_blank"
+              class="btn-d"
+              style="background: var(--gold); border-color: var(--gold)"
+              >Ver todos los episodios →</a
+            >
+          </div>
+          <a
+            href="https://www.youtube.com/playlist?list=PLWijaUd3ZT6m5EgrEKIhc21LhZReqc7v8"
+            target="_blank"
+            class="pc"
+          >
+            <div class="pc-hd">
+              <div class="pc-play"><div class="pc-arr"></div></div>
+              <div>
+                <div class="pc-lbl">YouTube · Playlist completa</div>
+                <div class="pc-title">El Foco de María Zabay</div>
+              </div>
+            </div>
+            <p class="pc-desc">
+              Todos los episodios — políticos, escritores, científicos y líderes
+              de opinión.
+            </p>
+            <div class="pc-cta">Ver todos los episodios →</div>
+          </a>
+        </div>
+      </section>
+
+      <section class="sec" id="galeria">
+        <h2 class="sh">María en <em>acción</em></h2>
+        <div class="gal-grid">
+          <div class="gp tall">
+            <img
+              src="imagenes/accion/accion1.jpg"
+              alt="María Zabay en El Foco"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center top;
+                display: block;
+              "
+            />
+          </div>
+          <div
+            class="gp"
+            onclick="
+              window.open(
+                'https://www.instagram.com/reel/DCE8xp3uEyB/',
+                '_blank',
+              )
+            "
+          >
+            <img
+              src="imagenes/accion/accion2.jpg"
+              alt="María Zabay con Pérez-Reverte"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center top;
+                display: block;
+              "
+            />
+          </div>
+          <div
+            class="gp"
+            style="cursor: pointer"
+            onclick="
+              window.open(
+                'https://okdiario.com/cultura/vicente-valles-miembros-gobierno-no-son-comentaristas-esos-limites-no-estan-respetando-15889801',
+                '_blank',
+              )
+            "
+          >
+            <img
+              src="imagenes/accion/accion3.jpg"
+              alt="María Zabay entrevistando a Vicente Vallés"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center top;
+                display: block;
+              "
+            />
+          </div>
+        </div>
+<div class="vid" onclick="playYT('l0Sh_czRAmw')">
+  <img
+    src="imagenes/portada_video.jpg"
+    alt="Ver vídeo María Zabay"
+    style="width: 100%; display: block"
+  />
+  <div class="vid-play"><div class="vid-arr"></div></div>
+  <div class="vid-lbl"><p>Ver vídeo completo →</p></div>
+</div>
+
+      </section>
+
+      <section class="sec" id="entrevistas">
+        <div class="iw-hd">
+          <h2 class="sh">Ha entrevistado <em>a</em></h2>
+          <a href="https://okdiario.com/autor/maria-zabay/" target="_blank"
+            >Ver todas →</a
+          >
+        </div>
+        <div class="igrid">
+          <div
+            class="icard ic-big"
+            onclick="playYT('LDFQ4K6norc')"
+          >
+            <div class="ic-img">
+              <img
+                src="imagenes/haentrevistado/peq2.jpg"
+                alt="Juan Manuel de Prada"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  object-position: center top;
+                  display: block;
+                  filter: brightness(0.7) saturate(0.85);
+                "
+              />
+            </div>
+            <div class="ic-over"></div>
+            <div class="ic-info">
+              <p class="ic-cat">Literatura</p>
+              <h3 class="ic-name">Juan Manuel de Prada</h3>
+              <p class="ic-q">
+                El escritor más incisivo y polémico de su generación.
+              </p>
+            </div>
+          </div>
+          <div
+            class="icard ic-sm"
+            onclick="
+              window.open(
+                'https://www.instagram.com/reel/DCE8xp3uEyB/',
+                '_blank',
+              )
+            "
+          >
+            <div class="ic-img">
+              <img
+                src="imagenes/haentrevistado/peq1.jpg"
+                alt="Arturo Pérez-Reverte"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  object-position: center top;
+                  display: block;
+                  filter: brightness(0.7) saturate(0.85);
+                "
+              />
+            </div>
+            <div class="ic-over"></div>
+            <div class="ic-info">
+              <p class="ic-cat">Literatura · Narrativa española</p>
+              <h3 class="ic-name">Arturo Pérez-Reverte</h3>
+              <p class="ic-q">El maestro de la narrativa española.</p>
+            </div>
+          </div>
+          <div class="icard ic-sm" onclick="playYT('geU5ciJJL2Q')">
+            <div class="ic-img">
+              <img
+                src="imagenes/haentrevistado/grande.jpg"
+                alt="Vico, filósofo"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  object-position: center top;
+                  display: block;
+                  filter: brightness(0.7) saturate(0.85);
+                "
+              />
+            </div>
+            <div class="ic-over"></div>
+            <div class="ic-info">
+              <p class="ic-cat">Filosofía · Entrevista viral</p>
+              <h3 class="ic-name">Vico, filósofo</h3>
+              <p class="ic-q">
+                &ldquo;Confiar es un acto revolucionario, por eso nos educan
+                para sospechar.&rdquo;
+              </p>
+            </div>
+          </div>
+          <div
+            class="icard ic-sm"
+            onclick="
+              window.open(
+                'https://www.instagram.com/reel/DXADvgZjazy/',
+                '_blank',
+              )
+            "
+          >
+            <div class="ic-img">
+              <img
+                src="imagenes/haentrevistado/peq3.jpg"
+                alt="Chema Alonso"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  object-position: center top;
+                  display: block;
+                  filter: brightness(0.7) saturate(0.85);
+                "
+              />
+            </div>
+            <div class="ic-over"></div>
+            <div class="ic-info">
+              <p class="ic-cat">Tecnología · IA</p>
+              <h3 class="ic-name">Chema Alonso</h3>
+              <p class="ic-q">
+                Inteligencia artificial y el futuro que ya está aquí.
+              </p>
+            </div>
+          </div>
+          <div
+            class="icard ic-sm"
+            onclick="
+              window.open('https://okdiario.com/autor/maria-zabay/', '_blank')
+            "
+          >
+            <div class="ic-img">
+              <img
+                src="imagenes/haentrevistado/peq4.jpg"
+                alt="Carmen Posadas"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  object-position: center top;
+                  display: block;
+                  filter: brightness(0.7) saturate(0.85);
+                "
+              />
+            </div>
+            <div class="ic-over"></div>
+            <div class="ic-info">
+              <p class="ic-cat">Literatura · Premio Planeta</p>
+              <h3 class="ic-name">Carmen Posadas</h3>
+              <p class="ic-q">
+                Escritura, poder y la mirada femenina en el siglo XXI.
+              </p>
+            </div>
+          </div>
+          <div
+            class="icard ic-sm"
+            onclick="
+              window.open('https://okdiario.com/autor/maria-zabay/', '_blank')
+            "
+          >
+            <div class="ic-img">
+              <img
+                src="imagenes/haentrevistado/peq5.jpg"
+                alt="Fernando Savater"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  object-position: center top;
+                  display: block;
+                  filter: brightness(0.7) saturate(0.85);
+                "
+              />
+            </div>
+            <div class="ic-over"></div>
+            <div class="ic-info">
+              <p class="ic-cat">Filosofía · Ética</p>
+              <h3 class="ic-name">Fernando Savater</h3>
+              <p class="ic-q">
+                Libertad, inteligencia y el valor de pensar en tiempos confusos.
+              </p>
+            </div>
+          </div>
+          <div
+            class="icard ic-sm"
+            onclick="
+              window.open(
+                'https://okdiario.com/espana/mayor-oreja-lo-unico-que-puede-hacer-democracia-espanola-buscar-alternativa-gobierno-16369205',
+                '_blank',
+              )
+            "
+          >
+            <div class="ic-img">
+              <img
+                src="imagenes/haentrevistado/peq6.jpg"
+                alt="Mayor Oreja"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  object-position: center top;
+                  display: block;
+                  filter: brightness(0.7) saturate(0.85);
+                "
+              />
+            </div>
+            <div class="ic-over"></div>
+            <div class="ic-info">
+              <p class="ic-cat">Política</p>
+              <h3 class="ic-name">Mayor Oreja</h3>
+              <p class="ic-q">
+                &ldquo;La mentira ha sustituido al crimen.&rdquo;
+              </p>
+            </div>
+          </div>
+          <div
+            class="icard ic-sm"
+            onclick="
+              window.open('https://okdiario.com/autor/maria-zabay/', '_blank')
+            "
+          >
+            <div class="ic-img">
+              <img
+                src="imagenes/haentrevistado/peq7.jpg"
+                alt="José Luis Corcuera"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  object-position: center top;
+                  display: block;
+                  filter: brightness(0.7) saturate(0.85);
+                "
+              />
+            </div>
+            <div class="ic-over"></div>
+            <div class="ic-info">
+              <p class="ic-cat">Política · PSOE</p>
+              <h3 class="ic-name">José Luis Corcuera</h3>
+              <p class="ic-q">
+                &ldquo;Me fui del PSOE porque no podía ser secretario
+                general.&rdquo;
+              </p>
+            </div>
+          </div>
+          <div
+            class="icard ic-sm"
+            onclick="
+              window.open(
+                'https://okdiario.com/cultura/ruben-amon-jovenes-encuentran-toros-argumento-politico-morante-argumento-artistico-16243421',
+                '_blank',
+              )
+            "
+          >
+            <div class="ic-img">
+              <img
+                src="imagenes/haentrevistado/peq8.jpg"
+                alt="Rubén Amón"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  object-position: center top;
+                  display: block;
+                  filter: brightness(0.7) saturate(0.85);
+                "
+              />
+            </div>
+            <div class="ic-over"></div>
+            <div class="ic-info">
+              <p class="ic-cat">Cultura · Toros</p>
+              <h3 class="ic-name">Rubén Amón</h3>
+              <p class="ic-q">
+                &ldquo;Los jóvenes encuentran en los toros un argumento
+                político.&rdquo;
+              </p>
+            </div>
+          </div>
+          <div
+            class="icard ic-sm"
+            onclick="
+              window.open(
+                'https://www.instagram.com/reel/DS1yltODRGq/',
+                '_blank',
+              )
+            "
+          >
+            <div class="ic-img">
+              <img
+                src="imagenes/haentrevistado/peq9.jpg"
+                alt="Alberto Casas"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  object-position: center top;
+                  display: block;
+                  filter: brightness(0.7) saturate(0.85);
+                "
+              />
+            </div>
+            <div class="ic-over"></div>
+            <div class="ic-info">
+              <p class="ic-cat">Ciencia · Física teórica</p>
+              <h3 class="ic-name">Alberto Casas</h3>
+              <p class="ic-q">
+                &ldquo;Lo que llamamos ahora ya ha ocurrido.&rdquo;
+              </p>
+            </div>
+          </div>
+          <div
+            class="icard ic-sm"
+            onclick="
+              window.open('https://okdiario.com/autor/maria-zabay/', '_blank')
+            "
+          >
+            <div class="ic-img">
+              <img
+                src="imagenes/haentrevistado/peq10.jpg"
+                alt="Carlos López-Otín"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  object-position: center top;
+                  display: block;
+                  filter: brightness(0.7) saturate(0.85);
+                "
+              />
+            </div>
+            <div class="ic-over"></div>
+            <div class="ic-info">
+              <p class="ic-cat">Ciencia · Bioquímica</p>
+              <h3 class="ic-name">Carlos López-Otín</h3>
+              <p class="ic-q">El científico más citado de España.</p>
+            </div>
+          </div>
+          <div
+            class="icard ic-sm"
+            onclick="
+              window.open(
+                'https://okdiario.com/ciencia/mario-alonso-puig-humanos-vemos-desde-pasado-no-desde-presente-14367153',
+                '_blank',
+              )
+            "
+          >
+            <div class="ic-img">
+              <img
+                src="imagenes/haentrevistado/peq11.jpg"
+                alt="Mario Alonso Puig"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  object-position: center top;
+                  display: block;
+                  filter: brightness(0.7) saturate(0.85);
+                "
+              />
+            </div>
+            <div class="ic-over"></div>
+            <div class="ic-info">
+              <p class="ic-cat">Ciencia · Neurociencia</p>
+              <h3 class="ic-name">Mario Alonso Puig</h3>
+              <p class="ic-q">
+                &ldquo;Los humanos vemos desde el pasado, no desde el
+                presente.&rdquo;
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec praise">
+        <div style="text-align: center; margin-bottom: 36px">
+          <p class="sey">Lo que dicen de ella</p>
+          <h2 class="sh">Voces que <em>la avalan</em></h2>
+        </div>
+        <div class="pgrid">
+          <div class="pcard">
+            <q
+              >Con una prosa que fluye como el mejor diálogo de una serie,
+              Valentina —valiente, imperfecta y profundamente humana— nos hace
+              reír, suspirar y emocionarnos.</q
+            >
+            <p class="pcard-by">Carmen Posadas — Premio Planeta</p>
+          </div>
+          <div class="pcard">
+            <q
+              >Pícara, desvergonzada, Valentina se inscribe en la tradición
+              erótica que los autores del siglo XVIII calificaban con el
+              eufemismo de novela filosófica.</q
+            >
+            <p class="pcard-by">Arturo Pérez-Reverte — RAE</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec" id="libros">
+        <div class="books-hd">
+          <div>
+            <p class="sey">Obra publicada</p>
+            <h2 class="sh">14 libros · <em>7 novelas</em></h2>
+          </div>
+          <a
+            href="https://www.casadellibro.com/libros-ebooks/maria-zabay/115036"
+            target="_blank"
+            class="btn-o"
+            >Ver colección →</a
+          >
+        </div>
+        <div class="bgrid">
+          <div class="bcard">
+            <a
+              href="https://www.amazon.es/Valentina-SUMA-Mar%C3%ADa-Zabay/dp/8410257645"
+              target="_blank"
+              style="text-decoration: none; display: block"
+              ><div class="bk3d">
+                <div class="bk-f">
+                  <img
+                    src="imagenes/libros/libro1.jpg"
+                    alt="Valentina"
+                  />
+                  <div class="bk-sh"></div>
+                </div>
+                <div class="bk-sp"></div></div
+            ></a>
+            <p class="bk-t">Valentina</p>
+            <p class="bk-g">Suma / Penguin RH · 2025</p>
+            <a
+              href="https://www.amazon.es/Valentina-SUMA-Mar%C3%ADa-Zabay/dp/8410257645"
+              target="_blank"
+              class="buy"
+              >Comprar</a
+            >
+          </div>
+          <div class="bcard">
+            <a
+              href="https://www.casadellibro.com/libro-el-zapato-de-la-lengua-rota/9788415338000/1858984"
+              target="_blank"
+              style="text-decoration: none; display: block"
+              ><div class="bk3d">
+                <div class="bk-f">
+                  <img
+                    src="imagenes/libros/libro2.jpg"
+                    alt="El zapato de la lengua rota"
+                  />
+                  <div class="bk-sh"></div>
+                </div>
+                <div class="bk-sp"></div></div
+            ></a>
+            <p class="bk-t">El zapato de la lengua rota</p>
+            <p class="bk-g">Almuzara · Novela histórica</p>
+            <a
+              href="https://www.casadellibro.com/libro-el-zapato-de-la-lengua-rota/9788415338000/1858984"
+              target="_blank"
+              class="buy"
+              >Comprar</a
+            >
+          </div>
+          <div class="bcard">
+            <a
+              href="https://www.casadellibro.com/libro-la-alumna/9788416002566/4689473"
+              target="_blank"
+              style="text-decoration: none; display: block"
+              ><div class="bk3d">
+                <div class="bk-f">
+                  <img
+                    src="imagenes/libros/libro3.jpg"
+                    alt="La alumna"
+                  />
+                  <div class="bk-sh"></div>
+                </div>
+                <div class="bk-sp"></div></div
+            ></a>
+            <p class="bk-t">La alumna</p>
+            <p class="bk-g">Arcopress</p>
+            <a
+              href="https://www.casadellibro.com/libro-la-alumna/9788416002566/4689473"
+              target="_blank"
+              class="buy"
+              >Comprar</a
+            >
+          </div>
+          <div class="bcard">
+            <a
+              href="https://www.amazon.es/Del-amor-otros-desastres-naturales/dp/B0F6K1F7VD"
+              target="_blank"
+              style="text-decoration: none; display: block"
+              ><div class="bk3d">
+                <div class="bk-f">
+                  <img
+                    src="imagenes/libros/libro4.jpg"
+                    alt="Del amor y otros desastres naturales"
+                  />
+                  <div class="bk-sh"></div>
+                </div>
+                <div class="bk-sp"></div></div
+            ></a>
+            <p class="bk-t">Del amor y otros desastres naturales</p>
+            <p class="bk-g">Amazon</p>
+            <a
+              href="https://www.amazon.es/Del-amor-otros-desastres-naturales/dp/B0F6K1F7VD"
+              target="_blank"
+              class="buy"
+              >Comprar</a
+            >
+          </div>
+          <div class="bcard">
+            <a
+              href="https://www.casadellibro.com/libros-ebooks/maria-zabay/115036"
+              target="_blank"
+              style="text-decoration: none; display: block"
+              ><div class="bk3d">
+                <div class="bk-f">
+                  <img
+                    src="imagenes/libros/libro5.jpg"
+                    alt="Aislada"
+                  />
+                  <div class="bk-sh"></div>
+                </div>
+                <div class="bk-sp"></div></div
+            ></a>
+            <p class="bk-t">Aislada</p>
+            <p class="bk-g">Almuzara</p>
+            <a
+              href="https://www.casadellibro.com/libros-ebooks/maria-zabay/115036"
+              target="_blank"
+              class="buy"
+              >Comprar</a
+            >
+          </div>
+          <div class="bcard">
+            <div>
+              <div class="bk3d">
+                <div class="bk-f">
+                  <img
+                    src="imagenes/libros/libro6.jpg"
+                    alt="Un viaje al éxito"
+                  />
+                  <div class="bk-sh"></div>
+                </div>
+                <div class="bk-sp"></div>
+              </div>
+            </div>
+            <p class="bk-t">Un viaje al éxito</p>
+            <p class="bk-g">Alienta Editorial</p>
+          </div>
+          <div class="bcard">
+            <a
+              href="https://www.machadolibros.com/libro/manhattan-y-otros-relatos-eroticos-escritos-por-mujeres_584311"
+              target="_blank"
+              style="text-decoration: none; display: block"
+              ><div class="bk3d">
+                <div class="bk-f">
+                  <img
+                    src="imagenes/libros/libro7.jpg"
+                    alt="Manhattan y otros relatos eróticos"
+                  />
+                  <div class="bk-sh"></div>
+                </div>
+                <div class="bk-sp"></div></div
+            ></a>
+            <p class="bk-t">Manhattan y otros relatos eróticos</p>
+            <p class="bk-g">Berenice</p>
+            <a
+              href="https://www.machadolibros.com/libro/manhattan-y-otros-relatos-eroticos-escritos-por-mujeres_584311"
+              target="_blank"
+              class="buy"
+              >Comprar</a
+            >
+          </div>
+          <div class="bcard">
+            <a
+              href="https://www.casadellibro.com/libro-liderar-con-la-palabra-las-diez-claves-para-convencer-y-triunfar/9788418089688/11215265"
+              target="_blank"
+              style="text-decoration: none; display: block"
+              ><div class="bk3d">
+                <div class="bk-f">
+                  <img
+                    src="imagenes/libros/libro8.jpg"
+                    alt="Liderar con la palabra"
+                  />
+                  <div class="bk-sh"></div>
+                </div>
+                <div class="bk-sp"></div></div
+            ></a>
+            <p class="bk-t">Liderar con la palabra</p>
+            <p class="bk-g">Almuzara</p>
+            <a
+              href="https://www.casadellibro.com/libro-liderar-con-la-palabra-las-diez-claves-para-convencer-y-triunfar/9788418089688/11215265"
+              target="_blank"
+              class="buy"
+              >Comprar</a
+            >
+          </div>
+          <div class="bcard">
+            <div>
+              <div class="bk3d">
+                <div class="bk-f">
+                  <img
+                    src="imagenes/libros/libro9.jpg"
+                    alt="Diosas de papel"
+                  />
+                  <div class="bk-sh"></div>
+                </div>
+                <div class="bk-sp"></div>
+              </div>
+            </div>
+            <p class="bk-t">Diosas de papel</p>
+            <p class="bk-g">Arcopress</p>
+          </div>
+          <div class="bcard">
+            <a
+              href="https://www.casadellibro.com/libros-ebooks/maria-zabay/115036"
+              target="_blank"
+              style="text-decoration: none; display: block"
+              ><div class="bk3d">
+                <div class="bk-f">
+                  <img
+                    src="imagenes/libros/libro10.jpg"
+                    alt="El contrato mortal"
+                  />
+                  <div class="bk-sh"></div>
+                </div>
+                <div class="bk-sp"></div></div
+            ></a>
+            <p class="bk-t">El contrato mortal</p>
+            <p class="bk-g">Planeta / Lémur</p>
+            <a
+              href="https://www.casadellibro.com/libros-ebooks/maria-zabay/115036"
+              target="_blank"
+              class="buy"
+              >Comprar</a
+            >
+          </div>
+          <div class="bcard">
+            <a
+              href="https://www.casadellibro.com/libros-ebooks/maria-zabay/115036"
+              target="_blank"
+              style="text-decoration: none; display: block"
+              ><div class="bk3d">
+                <div class="bk-f">
+                  <img
+                    src="imagenes/libros/libro11.jpg"
+                    alt="Todos contra el bullying"
+                  />
+                  <div class="bk-sh"></div>
+                </div>
+                <div class="bk-sp"></div></div
+            ></a>
+            <p class="bk-t">Todos contra el bullying</p>
+            <p class="bk-g">Alienta</p>
+            <a
+              href="https://www.casadellibro.com/libros-ebooks/maria-zabay/115036"
+              target="_blank"
+              class="buy"
+              >Comprar</a
+            >
+          </div>
+          <div class="bcard">
+            <a
+              href="https://www.casadellibro.com/libro-breve-historia-de-la-especie-humana/9788418952623/12795925"
+              target="_blank"
+              style="text-decoration: none; display: block"
+              ><div class="bk3d">
+                <div class="bk-f">
+                  <img
+                    src="imagenes/libros/libro12.jpg"
+                    alt="Breve historia de la especie humana"
+                  />
+                  <div class="bk-sh"></div>
+                </div>
+                <div class="bk-sp"></div></div
+            ></a>
+            <p class="bk-t">Breve historia de la especie humana</p>
+            <p class="bk-g">Berenice</p>
+            <a
+              href="https://www.casadellibro.com/libro-breve-historia-de-la-especie-humana/9788418952623/12795925"
+              target="_blank"
+              class="buy"
+              >Comprar</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="sec-dark" id="contacto">
+        <p class="sey" style="color: var(--gl)">Contacto</p>
+        <div class="fs-ok" id="fs-ok">
+          Mensaje enviado. Gracias por escribir.
+        </div>
+        <form
+          class="cf"
+          id="cf"
+          action="https://formspree.io/f/xgorwlvw"
+          method="POST"
+        >
+          <div class="cfr">
+            <div class="cfg">
+              <label class="cfl">Nombre</label
+              ><input
+                name="nombre"
+                type="text"
+                class="cfi"
+                placeholder="Su nombre"
+                required
+              />
+            </div>
+            <div class="cfg">
+              <label class="cfl">Organización</label
+              ><input
+                name="organizacion"
+                type="text"
+                class="cfi"
+                placeholder="Empresa o medio"
+              />
+            </div>
+          </div>
+          <div class="cfg">
+            <label class="cfl">Correo electrónico</label
+            ><input
+              name="email"
+              type="email"
+              class="cfi"
+              placeholder="su@email.com"
+              required
+            />
+          </div>
+          <div class="cfg">
+            <label class="cfl">Tipo de proyecto</label
+            ><input
+              name="proyecto"
+              type="text"
+              class="cfi"
+              placeholder="TV, radio, editorial..."
+            />
+          </div>
+          <div class="cfg">
+            <label class="cfl">Mensaje</label
+            ><textarea
+              name="mensaje"
+              class="cfta"
+              placeholder="Cuénteme su propuesta..."
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="cfsb">Enviar</button>
+        </form>
+      </section>
+
+      <footer>
+        <div class="ft">
+          <p class="fc">© 2026 María Zabay · Todos los derechos reservados</p>
+          <div class="fsoc">
+            <a href="https://www.instagram.com/maria_zabay/" target="_blank"
+              >Instagram</a
+            >
+            <a href="https://okdiario.com/autor/maria-zabay/" target="_blank"
+              >OKDiario</a
+            >
+            <a
+              href="https://www.casadellibro.com/libros-ebooks/maria-zabay/115036"
+              target="_blank"
+              >Libros</a
+            >
+          </div>
+        </div>
+        <div class="fleg">
+          <a
+            href="#"
+            onclick="
+              document.getElementById('mp').classList.add('open');
+              return false;
+            "
+            >Política de privacidad</a
+          >
+          <a
+            href="#"
+            onclick="
+              document.getElementById('ml').classList.add('open');
+              return false;
+            "
+            >Aviso legal</a
+          >
+          <a
+            href="#"
+            onclick="
+              document.getElementById('mc').classList.add('open');
+              return false;
+            "
+            >Política de cookies</a
+          >
+        </div>
+      </footer>
+
+      <div
+        class="modal"
+        id="mp"
+        onclick="if (event.target === this) this.classList.remove('open');"
+      >
+        <div class="mbox">
+          <button
+            class="mclose"
+            onclick="document.getElementById('mp').classList.remove('open')"
+          >
+            ✕
+          </button>
+          <h2>Política de privacidad</h2>
+          <p>
+            En cumplimiento del RGPD y la LOPDGDD, los datos facilitados serán
+            tratados por <strong>María Zabay</strong> para gestionar las
+            consultas.
+          </p>
+          <p>
+            <strong>Legitimación:</strong> Consentimiento. Derechos:
+            <a href="/cdn-cgi/l/email-protection#94f9f5e6fdf5eef5f6f5edd4f3f9f5fdf8baf7fbf9"><span class="__cf_email__" data-cfemail="355854475c544f5457544c755258545c591b565a58">[email&#160;protected]</span></a>
+          </p>
+        </div>
+      </div>
+      <div
+        class="modal"
+        id="ml"
+        onclick="if (event.target === this) this.classList.remove('open');"
+      >
+        <div class="mbox">
+          <button
+            class="mclose"
+            onclick="document.getElementById('ml').classList.remove('open')"
+          >
+            ✕
+          </button>
+          <h2>Aviso legal</h2>
+          <p>
+            Titular: María Zabay ·
+            <a href="/cdn-cgi/l/email-protection#7f121e0d161e051e1d1e063f18121e1613511c1012"><span class="__cf_email__" data-cfemail="4924283b202833282b2830092e24282025672a2624">[email&#160;protected]</span></a>.
+            Contenidos protegidos por propiedad intelectual.
+          </p>
+        </div>
+      </div>
+      <div
+        class="modal"
+        id="mc"
+        onclick="if (event.target === this) this.classList.remove('open');"
+      >
+        <div class="mbox">
+          <button
+            class="mclose"
+            onclick="document.getElementById('mc').classList.remove('open')"
+          >
+            ✕
+          </button>
+          <h2>Política de cookies</h2>
+          <p>
+            Este sitio usa cookies técnicas. YouTube puede establecer cookies de
+            Google al reproducir vídeos.
+          </p>
+        </div>
+      </div>
+
+      <!-- YOUTUBE MODAL -->
+      <div
+        class="ytmodal"
+        id="ytmodal"
+        onclick="if (event.target === this) closeYT();"
+      >
+        <div style="position: relative; width: 92%; max-width: 900px">
+          <button
+            onclick="closeYT()"
+            style="
+              position: absolute;
+              top: -44px;
+              right: 0;
+              background: none;
+              border: none;
+              color: #fff;
+              font-size: 32px;
+              cursor: pointer;
+              line-height: 1;
+            "
+          >
+            ✕
+          </button>
+          <div
+            style="
+              position: relative;
+              padding-bottom: 56.25%;
+              height: 0;
+              background: #000;
+              overflow: hidden;
+            "
+          >
+            <iframe
+              id="yt-frame"
+              src=""
+              allowfullscreen
+              allow="autoplay; encrypted-media"
+              style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: none;
+              "
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        window.addEventListener("scroll", function () {
+          document
+            .getElementById("nav")
+            .classList.toggle("sc", window.scrollY > 40);
+        });
+        var hbg = document.getElementById("hbg"),
+          drw = document.getElementById("drawer"),
+          dx = document.getElementById("dx");
+        hbg.addEventListener("click", function () {
+          hbg.classList.toggle("open");
+          drw.classList.toggle("open");
+          document.body.style.overflow = drw.classList.contains("open")
+            ? "hidden"
+            : "";
+        });
+        dx.addEventListener("click", function () {
+          hbg.classList.remove("open");
+          drw.classList.remove("open");
+          document.body.style.overflow = "";
+        });
+        document.querySelectorAll(".drawer a").forEach(function (a) {
+          a.addEventListener("click", function () {
+            hbg.classList.remove("open");
+            drw.classList.remove("open");
+            document.body.style.overflow = "";
+          });
+        });
+        function playYT(id) {
+          document.getElementById("yt-frame").src =
+            "https://www.youtube.com/embed/" + id + "?autoplay=1";
+          document.getElementById("ytmodal").classList.add("open");
+          document.body.style.overflow = "hidden";
+        }
+        function closeYT() {
+          document.getElementById("yt-frame").src = "";
+          document.getElementById("ytmodal").classList.remove("open");
+          document.body.style.overflow = "";
+        }
+        var cf = document.getElementById("cf");
+        cf &&
+          cf.addEventListener("submit", function (e) {
+            e.preventDefault();
+            fetch("https://formspree.io/f/xgorwlvw", {
+              method: "POST",
+              body: new FormData(cf),
+              headers: { Accept: "application/json" },
+            })
+              .then(function (r) {
+                if (r.ok) {
+                  cf.style.display = "none";
+                  document.getElementById("fs-ok").style.display = "block";
+                }
+              })
+              .catch(function () {});
+          });
+      </script>
+    </div>
+  </body>
+</html>
