@@ -1235,7 +1235,96 @@
           font-size: clamp(2.4rem, 14vw, 3.2rem);
         }
       }
+
+
+      /* CONSENTIMIENTO DE COOKIES / GOOGLE ANALYTICS */
+      .cookie-banner {
+        position: fixed;
+        left: 18px;
+        right: 18px;
+        bottom: 18px;
+        z-index: 10000;
+        display: none;
+        max-width: 920px;
+        margin: 0 auto;
+        padding: 20px 22px;
+        background: rgba(8, 8, 8, 0.98);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 18px 55px rgba(0, 0, 0, 0.28);
+      }
+      .cookie-banner.open { display: block; }
+      .cookie-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+      .cookie-copy { max-width: 620px; }
+      .cookie-title {
+        font-family: "EB Garamond", serif;
+        font-size: 1.25rem;
+        font-weight: 400;
+        color: #fff;
+        margin-bottom: 4px;
+      }
+      .cookie-text {
+        font-size: 0.76rem;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.66);
+      }
+      .cookie-text a { color: var(--gl); text-decoration: none; }
+      .cookie-text a:hover { text-decoration: underline; }
+      .cookie-actions {
+        display: flex;
+        gap: 10px;
+        flex-shrink: 0;
+      }
+      .cookie-btn {
+        min-width: 112px;
+        padding: 10px 16px;
+        font-family: "Jost", sans-serif;
+        font-size: 0.64rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .cookie-accept {
+        background: var(--gold);
+        color: #0f0f0f;
+        border: 1px solid var(--gold);
+      }
+      .cookie-reject {
+        background: transparent;
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.7);
+      }
+      .cookie-accept:hover { background: var(--gl); border-color: var(--gl); }
+      .cookie-reject:hover { border-color: var(--gl); color: var(--gl); }
+      @media (max-width: 700px) {
+        .cookie-banner { left: 10px; right: 10px; bottom: 10px; padding: 18px 16px; }
+        .cookie-inner { flex-direction: column; align-items: stretch; gap: 16px; }
+        .cookie-actions { width: 100%; }
+        .cookie-btn { flex: 1; min-width: 0; }
+      }
     </style>
+
+
+    <!-- ============================================================
+         GOOGLE ANALYTICS (GA4) — ÚNICO HUECO QUE TENDRÁS QUE RELLENAR
+
+         PEGA ENTRE <template> Y </template> EL CÓDIGO COMPLETO QUE TE DÉ
+         GOOGLE ANALYTICS (incluidos sus <script>...</script>).
+
+         NO LO PEGUES FUERA DE ESTA PLANTILLA.
+         Mientras esté aquí dentro, el navegador NO lo ejecutará hasta que
+         el visitante pulse «Aceptar» en el banner de cookies.
+         ============================================================ -->
+    <template id="google-analytics-code">
+      <!-- PEGAR AQUÍ EL CÓDIGO COMPLETO DE GOOGLE ANALYTICS -->
+
+    </template>
+
   </head>
   <body>
     <nav id="nav">
@@ -1289,7 +1378,7 @@
           </div>
         </div>
         <div class="hero-r">
-          <p class="eyebrow">Zaragoza · España · 20 años de periodismo</p>
+          <p class="eyebrow">España · 20 años de periodismo</p>
           <h1 class="hname">María<em>Zabay</em></h1>
           <p class="hquote">
             &ldquo;Me interesan las respuestas que dicen algo real&rdquo;
@@ -2235,14 +2324,7 @@
           </div>
         </div>
         <div class="fleg">
-          <a
-            href="#"
-            onclick="
-              document.getElementById('mp').classList.add('open');
-              return false;
-            "
-            >Política de privacidad</a
-          >
+          <a href="politica-de-privacidad.html">Política de privacidad</a>
           <a
             href="#"
             onclick="
@@ -2259,33 +2341,10 @@
             "
             >Política de cookies</a
           >
+          <a href="#" onclick="return openCookieSettings();">Gestionar cookies</a>
         </div>
       </footer>
 
-      <div
-        class="modal"
-        id="mp"
-        onclick="if (event.target === this) this.classList.remove('open');"
-      >
-        <div class="mbox">
-          <button
-            class="mclose"
-            onclick="document.getElementById('mp').classList.remove('open')"
-          >
-            ✕
-          </button>
-          <h2>Política de privacidad</h2>
-          <p>
-            En cumplimiento del RGPD y la LOPDGDD, los datos facilitados serán
-            tratados por <strong>María Zabay</strong> para gestionar las
-            consultas.
-          </p>
-          <p>
-            <strong>Legitimación:</strong> Consentimiento. Derechos:
-            <a href="/cdn-cgi/l/email-protection#94f9f5e6fdf5eef5f6f5edd4f3f9f5fdf8baf7fbf9"><span class="__cf_email__" data-cfemail="355854475c544f5457544c755258545c591b565a58">[email&#160;protected]</span></a>
-          </p>
-        </div>
-      </div>
       <div
         class="modal"
         id="ml"
@@ -2320,8 +2379,9 @@
           </button>
           <h2>Política de cookies</h2>
           <p>
-            Este sitio usa cookies técnicas. YouTube puede establecer cookies de
-            Google al reproducir vídeos.
+            Este sitio utiliza cookies técnicas necesarias. Google Analytics solo se
+            cargará si el usuario acepta expresamente las cookies analíticas. YouTube
+            puede establecer cookies de Google al reproducir vídeos.
           </p>
         </div>
       </div>
@@ -2434,5 +2494,101 @@
           });
       </script>
     </div>
+
+
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Preferencias de cookies">
+      <div class="cookie-inner">
+        <div class="cookie-copy">
+          <p class="cookie-title">Privacidad y cookies</p>
+          <p class="cookie-text">
+            Utilizamos cookies técnicas necesarias y, solo si aceptas, Google Analytics
+            para obtener estadísticas de uso. Puedes aceptar o rechazar las cookies analíticas.
+            <a href="politica-de-privacidad.html#analytics">Más información</a>.
+          </p>
+        </div>
+        <div class="cookie-actions">
+          <button type="button" class="cookie-btn cookie-reject" id="cookie-reject">Rechazar</button>
+          <button type="button" class="cookie-btn cookie-accept" id="cookie-accept">Aceptar</button>
+        </div>
+      </div>
+    </div>
+
+
+    <script>
+      (function () {
+        var STORAGE_KEY = "mz_cookie_consent";
+        var banner = document.getElementById("cookie-banner");
+        var acceptBtn = document.getElementById("cookie-accept");
+        var rejectBtn = document.getElementById("cookie-reject");
+        var analyticsLoaded = false;
+
+        function executeGoogleAnalyticsTemplate() {
+          if (analyticsLoaded) return;
+          var template = document.getElementById("google-analytics-code");
+          if (!template) return;
+
+          var fragment = template.content.cloneNode(true);
+          var nodes = Array.prototype.slice.call(fragment.childNodes);
+
+          nodes.forEach(function (node) {
+            if (node.nodeType === 1 && node.tagName === "SCRIPT") {
+              var script = document.createElement("script");
+              Array.prototype.slice.call(node.attributes).forEach(function (attr) {
+                script.setAttribute(attr.name, attr.value);
+              });
+              script.text = node.textContent || "";
+              document.head.appendChild(script);
+            } else if (node.nodeType === 1) {
+              document.head.appendChild(node.cloneNode(true));
+            }
+          });
+
+          analyticsLoaded = true;
+        }
+
+        function hideBanner() {
+          if (banner) banner.classList.remove("open");
+        }
+
+        function showBanner() {
+          if (banner) banner.classList.add("open");
+        }
+
+        function setConsent(value) {
+          try { localStorage.setItem(STORAGE_KEY, value); } catch (e) {}
+          hideBanner();
+          if (value === "accepted") executeGoogleAnalyticsTemplate();
+        }
+
+        window.openCookieSettings = function () {
+          showBanner();
+          return false;
+        };
+
+        if (acceptBtn) {
+          acceptBtn.addEventListener("click", function () {
+            setConsent("accepted");
+          });
+        }
+
+        if (rejectBtn) {
+          rejectBtn.addEventListener("click", function () {
+            var wasAccepted = false;
+            try { wasAccepted = localStorage.getItem(STORAGE_KEY) === "accepted"; } catch (e) {}
+            setConsent("rejected");
+            if (wasAccepted && analyticsLoaded) window.location.reload();
+          });
+        }
+
+        var saved = null;
+        try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+        if (saved === "accepted") {
+          executeGoogleAnalyticsTemplate();
+        } else if (saved !== "rejected") {
+          showBanner();
+        }
+      })();
+    </script>
+
   </body>
 </html>
