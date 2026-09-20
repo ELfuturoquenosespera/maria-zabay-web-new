@@ -1295,9 +1295,9 @@
         border: 1px solid var(--gold);
       }
       .cookie-reject {
-        background: transparent;
-        color: #fff;
-        border: 1px solid rgba(255, 255, 255, 0.7);
+        background: #fff;
+        color: #0f0f0f;
+        border: 1px solid #fff;
       }
       .cookie-accept:hover { background: var(--gl); border-color: var(--gl); }
       .cookie-reject:hover { border-color: var(--gl); color: var(--gl); }
@@ -1310,20 +1310,12 @@
     </style>
 
 
-    <!-- ============================================================
-         GOOGLE ANALYTICS (GA4) — ÚNICO HUECO QUE TENDRÁS QUE RELLENAR
-
-         PEGA ENTRE <template> Y </template> EL CÓDIGO COMPLETO QUE TE DÉ
-         GOOGLE ANALYTICS (incluidos sus <script>...</script>).
-
-         NO LO PEGUES FUERA DE ESTA PLANTILLA.
-         Mientras esté aquí dentro, el navegador NO lo ejecutará hasta que
-         el visitante pulse «Aceptar» en el banner de cookies.
-         ============================================================ -->
-    <template id="google-analytics-code">
-      <!-- PEGAR AQUÍ EL CÓDIGO COMPLETO DE GOOGLE ANALYTICS -->
-
-    </template>
+    <!-- Google Analytics 4.
+         El identificador se guarda en ga-config.js para que solo haya que
+         cambiarlo en UN sitio. Este archivo no contacta con Google.
+         Google Analytics se carga dinámicamente únicamente después de que
+         el visitante acepte las cookies analíticas. -->
+    <script src="ga-config.js"></script>
 
   </head>
   <body>
@@ -2379,9 +2371,19 @@
           </button>
           <h2>Política de cookies</h2>
           <p>
-            Este sitio utiliza cookies técnicas necesarias. Google Analytics solo se
-            cargará si el usuario acepta expresamente las cookies analíticas. YouTube
-            puede establecer cookies de Google al reproducir vídeos.
+            Este sitio utiliza almacenamiento técnico necesario para recordar la elección
+            de privacidad del usuario. Google Analytics 4 solo se cargará si el usuario
+            acepta expresamente las cookies analíticas; si las rechaza, no se carga el
+            código de Analytics.
+          </p>
+          <p>
+            Cuando Analytics está autorizado, Google puede utilizar las cookies
+            <strong>_ga</strong> y <strong>_ga_&lt;ID&gt;</strong> para medición
+            estadística. Puedes cambiar tu decisión en cualquier momento desde
+            «Gestionar cookies».
+          </p>
+          <p>
+            <a href="politica-de-privacidad.html#analytics">Más información sobre cookies y Google Analytics</a>.
           </p>
         </div>
       </div>
@@ -2524,24 +2526,26 @@
 
         function executeGoogleAnalyticsTemplate() {
           if (analyticsLoaded) return;
-          var template = document.getElementById("google-analytics-code");
-          if (!template) return;
 
-          var fragment = template.content.cloneNode(true);
-          var nodes = Array.prototype.slice.call(fragment.childNodes);
+          var measurementId = String(window.MZ_GA4_MEASUREMENT_ID || "").trim();
+          if (!/^G-[A-Z0-9]+$/i.test(measurementId)) return;
 
-          nodes.forEach(function (node) {
-            if (node.nodeType === 1 && node.tagName === "SCRIPT") {
-              var script = document.createElement("script");
-              Array.prototype.slice.call(node.attributes).forEach(function (attr) {
-                script.setAttribute(attr.name, attr.value);
-              });
-              script.text = node.textContent || "";
-              document.head.appendChild(script);
-            } else if (node.nodeType === 1) {
-              document.head.appendChild(node.cloneNode(true));
-            }
-          });
+          window.dataLayer = window.dataLayer || [];
+          window.gtag =
+            window.gtag ||
+            function () {
+              window.dataLayer.push(arguments);
+            };
+
+          window.gtag("js", new Date());
+          window.gtag("config", measurementId);
+
+          var script = document.createElement("script");
+          script.async = true;
+          script.src =
+            "https://www.googletagmanager.com/gtag/js?id=" +
+            encodeURIComponent(measurementId);
+          document.head.appendChild(script);
 
           analyticsLoaded = true;
         }

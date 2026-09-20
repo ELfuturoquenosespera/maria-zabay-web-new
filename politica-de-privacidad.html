@@ -21,20 +21,12 @@
     />
 
 
-    <!-- ============================================================
-         GOOGLE ANALYTICS (GA4) — ÚNICO HUECO QUE TENDRÁS QUE RELLENAR
-
-         PEGA ENTRE <template> Y </template> EL CÓDIGO COMPLETO QUE TE DÉ
-         GOOGLE ANALYTICS (incluidos sus <script>...</script>).
-
-         NO LO PEGUES FUERA DE ESTA PLANTILLA.
-         Mientras esté aquí dentro, el navegador NO lo ejecutará hasta que
-         el visitante pulse «Aceptar» en el banner de cookies.
-         ============================================================ -->
-    <template id="google-analytics-code">
-      <!-- PEGAR AQUÍ EL CÓDIGO COMPLETO DE GOOGLE ANALYTICS -->
-
-    </template>
+    <!-- Google Analytics 4.
+         El identificador se guarda en ga-config.js para que solo haya que
+         cambiarlo en UN sitio. Este archivo no contacta con Google.
+         Google Analytics se carga dinámicamente únicamente después de que
+         el visitante acepte las cookies analíticas. -->
+    <script src="ga-config.js"></script>
 
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -307,9 +299,9 @@
         border: 1px solid var(--gold);
       }
       .cookie-reject {
-        background: transparent;
-        color: #fff;
-        border: 1px solid rgba(255, 255, 255, 0.7);
+        background: #fff;
+        color: #0f0f0f;
+        border: 1px solid #fff;
       }
       .cookie-accept:hover { background: var(--gl); border-color: var(--gl); }
       .cookie-reject:hover { border-color: var(--gl); color: var(--gl); }
@@ -335,7 +327,7 @@
           Información sobre el tratamiento de los datos personales de quienes visitan
           esta web o se ponen en contacto a través de ella.
         </p>
-        <p class="updated">Última actualización · 27 de agosto de 2026</p>
+        <p class="updated">Última actualización · 20 de septiembre de 2026</p>
       </div>
     </header>
 
@@ -442,25 +434,47 @@
           </section>
 
           <section id="analytics">
-            <h2>7. Google Analytics</h2>
+            <h2>7. Cookies y Google Analytics</h2>
             <div class="notice">
-              Google Analytics está configurado para permanecer bloqueado hasta que el
-              usuario otorgue su consentimiento mediante el banner de cookies.
+              Google Analytics 4 permanece bloqueado hasta que el usuario otorgue su
+              consentimiento mediante el banner de cookies.
             </div>
             <p>
-              Si el usuario pulsa «Aceptar», podrá cargarse Google Analytics para obtener
-              estadísticas sobre la navegación y el uso del sitio. Si pulsa «Rechazar»,
-              el código de Google Analytics no se ejecutará.
+              Si el usuario pulsa «Aceptar», se carga Google Analytics 4 para obtener
+              estadísticas agregadas sobre la navegación y el uso del sitio. Si pulsa
+              «Rechazar», el código de Analytics no se carga.
+            </p>
+            <h3>Tecnologías utilizadas</h3>
+            <ul>
+              <li>
+                <strong>mz_cookie_consent</strong>: preferencia técnica guardada en el
+                almacenamiento local del navegador para recordar si el usuario ha aceptado
+                o rechazado las cookies analíticas. No se utiliza con fines publicitarios.
+              </li>
+              <li>
+                <strong>_ga</strong>: cookie de Google Analytics destinada a distinguir
+                usuarios con fines estadísticos. Su duración predeterminada es de 2 años.
+                Solo puede establecerse después de aceptar Analytics.
+              </li>
+              <li>
+                <strong>_ga_&lt;ID&gt;</strong>: cookie de Google Analytics utilizada para
+                conservar el estado de la sesión. Su duración predeterminada es de 2 años.
+                Solo puede establecerse después de aceptar Analytics.
+              </li>
+            </ul>
+            <p>
+              La elección del usuario se guarda localmente para no volver a solicitarla en
+              cada visita. Puede abrir de nuevo el panel mediante el enlace
+              «Gestionar cookies» disponible al pie de la web y cambiar su decisión en
+              cualquier momento. Al pasar de «Aceptar» a «Rechazar», la página se recarga
+              para detener Analytics; el usuario también puede eliminar las cookies ya
+              existentes desde la configuración de su navegador.
             </p>
             <p>
-              La elección se guarda localmente en el navegador para no volver a solicitarla
-              en cada visita. El usuario puede abrir de nuevo el panel mediante el enlace
-              «Gestionar cookies» disponible al pie de la web y cambiar su decisión.
-            </p>
-            <p>
-              Cuando Google Analytics esté activado, el tratamiento de datos derivado de
-              dicho servicio se realizará de acuerdo con la configuración aplicada y con
-              la normativa vigente en materia de privacidad y cookies.
+              Google Analytics es un servicio de Google. Cuando esté activado, el
+              tratamiento derivado de este servicio estará sujeto a la configuración de
+              Analytics aplicada al sitio y a las condiciones y políticas de privacidad
+              de Google.
             </p>
           </section>
 
@@ -562,24 +576,26 @@
 
         function executeGoogleAnalyticsTemplate() {
           if (analyticsLoaded) return;
-          var template = document.getElementById("google-analytics-code");
-          if (!template) return;
 
-          var fragment = template.content.cloneNode(true);
-          var nodes = Array.prototype.slice.call(fragment.childNodes);
+          var measurementId = String(window.MZ_GA4_MEASUREMENT_ID || "").trim();
+          if (!/^G-[A-Z0-9]+$/i.test(measurementId)) return;
 
-          nodes.forEach(function (node) {
-            if (node.nodeType === 1 && node.tagName === "SCRIPT") {
-              var script = document.createElement("script");
-              Array.prototype.slice.call(node.attributes).forEach(function (attr) {
-                script.setAttribute(attr.name, attr.value);
-              });
-              script.text = node.textContent || "";
-              document.head.appendChild(script);
-            } else if (node.nodeType === 1) {
-              document.head.appendChild(node.cloneNode(true));
-            }
-          });
+          window.dataLayer = window.dataLayer || [];
+          window.gtag =
+            window.gtag ||
+            function () {
+              window.dataLayer.push(arguments);
+            };
+
+          window.gtag("js", new Date());
+          window.gtag("config", measurementId);
+
+          var script = document.createElement("script");
+          script.async = true;
+          script.src =
+            "https://www.googletagmanager.com/gtag/js?id=" +
+            encodeURIComponent(measurementId);
+          document.head.appendChild(script);
 
           analyticsLoaded = true;
         }
