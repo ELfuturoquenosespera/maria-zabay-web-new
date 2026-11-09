@@ -1,0 +1,58 @@
+VALENTINA — UNA PÍCARA EN MANHATTAN
+Sitio web independiente para la novela de María Zabay
+=============================================================
+
+QUÉ INCLUYE
+- index.html: web principal y menú de navegación.
+- css/styles.css: diseño completo, paleta de la cubierta y versión móvil.
+- js/app.js: menú móvil, filtros de noticias, barra de lectura y compartir enlace.
+- assets/img/: portada aportada, foto de María procedente de la web facilitada,
+  gráfica social, icono y skyline original en SVG.
+- politica-de-privacidad.html y aviso-legal.html.
+
+PREVISUALIZAR
+1. Descomprime el RAR completo.
+2. Abre index.html con Chrome, Edge o Firefox.
+3. Comprueba el menú, los enlaces internos, los filtros y las versiones móvil/escritorio.
+
+PUBLICAR
+Sube EL CONTENIDO de la carpeta valentina_web a la raíz de tu dominio
+(o subdominio). index.html debe quedar en esa raíz, y css/, js/ y
+assets/ deben mantener sus rutas relativas. No necesita bases de datos
+ni compilación, y funciona en un servidor estático.
+
+ANTES DE PUBLICAR
+- Añade al <head> de index.html un enlace canonical con el dominio final.
+- Convierte og:image, twitter:image y la propiedad image de JSON-LD en URL
+  absolutas del dominio final para vistas previas en redes sociales.
+- Completa en aviso-legal.html los datos del titular y revisa las políticas
+  conforme al proveedor de alojamiento.
+- La web no activa Google Analytics ni cookies de seguimiento. Si
+  incorporas servicios de terceros, actualiza la política y el consentimiento.
+- Confirma autorización de uso de portada y fotografía del material aportado.
+
+FUENTES EDITORIALES Y ARTÍCULOS
+Ficha del libro: https://www.penguinlibros.com/es/literatura-contemporanea/364791-libro-valentina-9788410257641
+ISBN: 9788410257641, SUMA, España 06/03/2025, 352 páginas.
+Los enlaces de prensa están en index.html, siempre dirigidos a las fuentes.
+
+NOTA SOBRE EL VÍDEO
+La web original de María adjunta un corto promocional de Valentina cuyo
+subtítulo difiere del de la cubierta aportada para esta web. Por coherencia
+visual y editorial, este vídeo no se ha incluido.
+
+CAMBIOS RÁPIDOS
+- Colores: variables al inicio de css/styles.css
+- Textos / enlaces: index.html
+- Medios: tarjetas .press-card de index.html; si añades o quitas noticias,
+  actualiza los contadores en .press-filters.
+- Imágenes: assets/img/ (mantén nombres o ajusta referencias HTML).
+
+No incluye herramientas de análisis ni depende de bibliotecas remotas.
+
+ACTUALIZACIÓN: PORTADA Y VÍDEO
+- Se ha corregido la proporción de la portada en la sección final «Conseguir el libro».
+- Al pasar el ratón por la portada de cabecera, el libro gira y aparece mediante un fundido el vídeo assets/video/videovalentina.mp4. Al retirar el cursor, vuelve la cubierta.
+- En móviles se utiliza un toque sobre la portada para reproducir o detener la vista previa.
+- El vídeo se reproduce sin sonido para permitir la activación desde la web; no requiere servicios externos.
+- Todo funciona con las rutas relativas, igual que el resto de la web.
