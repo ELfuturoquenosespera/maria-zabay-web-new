@@ -1,0 +1,16 @@
+MISERIA — WEB REDISEÑADA CON EFECTOS DE LA VERSIÓN ORIGINAL
+
+BASE: último rediseño blanco y negro. La composición, SEO y demás páginas permanecen iguales.
+
+RESTAURADO:
+1) Portada de cabecera: vídeo original assets/videomiseriahero.mp4 al pasar el ratón, fundido de imagen y reproducción completa al pulsar.
+2) Sección «Primera página»: la portada y el botón «Leer» abren un visor 3D con 9 páginas originales y una tarjeta final.
+3) En la página 8 aparece el reproductor integrado de assets/audio/lecturaprimerapagina.mp3. «Oír primera página» abre directamente esa página.
+4) En móviles el lector es de una página a pantalla centrada con flechas y gesto lateral.
+5) Se conserva el enlace alternativo al PDF y los enlaces de compra y prensa.
+
+ARCHIVOS AÑADIDOS:
+css/miseria-lector-y-portada.css
+js/miseria-lector-y-portada.js
+
+PUBLICACIÓN: subir todo el contenido de esta carpeta conservando las rutas.

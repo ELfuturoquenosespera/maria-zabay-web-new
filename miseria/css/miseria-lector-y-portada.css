@@ -1,0 +1,150 @@
+/* MISERIA: efectos originales restaurados para el rediseño editorial en blanco y negro.
+   No altera la composición ni los estilos de las demás secciones. */
+.hero-book-interactive{
+  display:block;position:relative;isolation:isolate;flex:none;
+  width:clamp(260px,32vw,455px);max-width:100%;max-height:min(58vh,530px);
+  margin:0;padding:0;border:0;background:transparent;color:inherit;cursor:pointer;
+  transform:translateX(-3%);transform-style:preserve-3d;perspective:1200px;
+  transition:transform .55s cubic-bezier(.22,.61,.36,1);
+  -webkit-tap-highlight-color:transparent;
+}
+.hero-book-interactive .hero-book{
+  display:block;width:100%;height:auto;max-height:min(58vh,530px);
+  object-fit:contain;transform:none;margin:0;transition:opacity .38s ease;
+}
+.hero-book-interactive .hero-hover-video{
+  position:absolute;inset:0;width:100%;height:100%;max-height:100%;
+  object-fit:contain;object-position:center;display:block;
+  opacity:0;pointer-events:none;background:transparent;
+  transition:opacity .38s ease;transition-delay:0s;
+  filter:drop-shadow(15px 23px 20px rgba(0,0,0,.14));
+}
+.hero-book-interactive.is-playing .hero-book{opacity:0}
+.hero-book-interactive.is-playing .hero-hover-video{opacity:1;transition-delay:.12s}
+.hero-book-interactive:focus-visible{outline:2px solid #111;outline-offset:8px}
+@media(hover:hover) and (pointer:fine){
+  .hero-book-interactive:hover{transform:translateX(-3%) perspective(1250px) rotateY(-7deg)}
+}
+@media(max-width:900px){.hero-book-interactive{width:clamp(265px,38vw,410px)}}
+@media(max-width:640px){
+  .hero-book-interactive{width:min(76vw,330px);max-height:none;align-self:flex-start;transform:none;margin-bottom:10px}
+  .hero-book-interactive .hero-book{max-height:none}
+}
+/* El botón que sustituye a la portada enlazada conserva exactamente su caja visual. */
+.feature-cover[type="button"]{width:100%;font:inherit;color:inherit;cursor:pointer;border:1px solid var(--line)}
+.feature-cover[type="button"]:focus-visible{outline:2px solid #111;outline-offset:4px}
+.feature-actions button.text-link{border:0;background:none;color:inherit;padding:0;font:inherit;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+.pdf-alternative{color:inherit;text-decoration:underline;text-underline-offset:3px}
+/* Reproductor del vídeo de portada: el mismo vídeo original, ampliable con controles. */
+#hero-video-dialog{
+  width:min(900px,calc(100vw - 24px));max-width:none;max-height:92dvh;
+  border:1px solid #222;background:#050505;color:#fff;padding:0;
+  overflow:visible;box-shadow:0 28px 100px #0009;
+}
+#hero-video-dialog::backdrop{background:#000c;backdrop-filter:blur(6px)}
+#hero-video-dialog video{display:block;width:auto;max-width:100%;height:auto;max-height:89dvh;aspect-ratio:9/16;object-fit:contain;margin:auto;background:#060606}
+#hero-video-dialog .hero-video-close{position:absolute;z-index:5;right:-12px;top:-12px;width:40px;height:40px;border:1px solid #fff7;border-radius:50%;background:#111;color:white;font:30px/1 Arial,sans-serif;cursor:pointer}
+/* Visor 3D restaurado. Fuera del flujo de página, centrado en móvil y escritorio. */
+#reader-dialog{
+  width:min(1080px,calc(100vw - 32px));max-width:none;max-height:min(93dvh,910px);
+  border:0;padding:0;overflow:visible;color:#111;background:transparent;
+  box-shadow:none;overscroll-behavior:contain;
+}
+#reader-dialog::backdrop{background:#050505e8;backdrop-filter:blur(6px)}
+#reader-dialog .reader-close{position:absolute;z-index:50;right:0;top:-41px;width:38px;height:36px;border:1px solid #fff7;border-radius:50%;background:#111;color:#fff;font:26px/1 Arial,sans-serif;cursor:pointer}
+#reader-dialog .open-book{
+  position:relative;display:grid;grid-template-columns:1fr 1fr;
+  width:100%;height:min(82dvh,740px);max-height:82dvh;
+  perspective:1800px;filter:drop-shadow(0 25px 42px #0009);
+}
+#reader-dialog .book-inside{min-width:0;overflow:hidden;position:relative;background:#111;border-radius:7px 0 0 7px;box-shadow:inset -12px 0 30px #0007}
+#reader-dialog .book-inside img{width:100%;height:100%;object-fit:contain;display:block;filter:none;}
+#reader-dialog .reader-opening-cover{
+  position:absolute;z-index:20;top:0;right:0;height:100%;width:50%;
+  background:#111;overflow:hidden;border-radius:0 7px 7px 0;
+  transform-origin:left center;transform-style:preserve-3d;backface-visibility:hidden;
+  pointer-events:none;box-shadow:-10px 0 30px #0009;
+}
+#reader-dialog .reader-opening-cover img{width:100%;height:100%;display:block;object-fit:contain;filter:none}
+#reader-dialog .reader-opening-cover.opening{animation:mz-reader-cover-open .98s cubic-bezier(.55,.03,.22,1) forwards}
+@keyframes mz-reader-cover-open{0%{transform:perspective(1800px) rotateY(0deg);opacity:1}72%{opacity:1}100%{transform:perspective(1800px) rotateY(-168deg);opacity:0}}
+#reader-dialog .book-page{min-width:0;min-height:0;display:flex;flex-direction:column;background:#eee;border-radius:0 7px 7px 0;overflow:hidden;box-shadow:inset 13px 0 25px #0002}
+#reader-dialog .reader-page-viewport{position:relative;min-height:0;flex:1;display:grid;place-items:center;padding:9px 42px;background:linear-gradient(90deg,#e5e5e5,#f9f9f9 17%,#f9f9f9 80%,#ececec);overflow:hidden}
+#reader-dialog .reader-page-sheet{position:relative;width:100%;height:100%;min-height:0;display:grid;place-items:center;transform-style:preserve-3d;will-change:transform,opacity}
+#reader-dialog .reader-page-leaf{display:grid;place-items:center;position:relative;width:100%;height:100%;min-height:0}
+#reader-dialog .reader-page-leaf > img{display:block;max-width:100%;max-height:100%;height:auto;width:auto;object-fit:contain;box-shadow:0 7px 22px #0002;background:#fff}
+#reader-dialog .reader-page-leaf > img[hidden],#reader-dialog .reader-end-card[hidden],#reader-dialog .reading-audio[hidden]{display:none!important}
+#reader-dialog .reader-page-arrow{position:absolute;z-index:10;top:50%;transform:translateY(-50%);width:35px;height:54px;border:1px solid #999;background:#fffE;color:#111;font:36px/1 Georgia,serif;cursor:pointer;display:grid;place-items:center;padding:0;box-shadow:0 3px 10px #0002}
+#reader-dialog .reader-page-arrow:hover:not(:disabled){background:#111;color:#fff}
+#reader-dialog button:disabled{opacity:.23;cursor:default}
+#reader-dialog .reader-page-prev{left:3px}
+#reader-dialog .reader-page-next{right:3px}
+#reader-dialog .reader-pages-nav{height:42px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;gap:22px;border-top:1px solid #ccc;background:#f7f7f7;font:600 12px/1 sans-serif;letter-spacing:.06em}
+#reader-dialog .reader-pages-nav button{padding:4px 12px;border:0;background:transparent;font:25px/1 Georgia,serif;cursor:pointer}
+#reader-dialog .reader-page-sheet.turn-forward{animation:mz-reader-page-out-forward .16s ease-in forwards;transform-origin:left}
+#reader-dialog .reader-page-sheet.turn-back{animation:mz-reader-page-out-back .16s ease-in forwards;transform-origin:right}
+#reader-dialog .reader-page-sheet.arrive-forward{animation:mz-reader-page-in-forward .22s ease-out both;transform-origin:right}
+#reader-dialog .reader-page-sheet.arrive-back{animation:mz-reader-page-in-back .22s ease-out both;transform-origin:left}
+@keyframes mz-reader-page-out-forward{to{transform:perspective(1000px) rotateY(-14deg) translateX(-11px);opacity:.2}}
+@keyframes mz-reader-page-out-back{to{transform:perspective(1000px) rotateY(14deg) translateX(11px);opacity:.2}}
+@keyframes mz-reader-page-in-forward{from{transform:perspective(1000px) rotateY(12deg) translateX(11px);opacity:.15}to{transform:none;opacity:1}}
+@keyframes mz-reader-page-in-back{from{transform:perspective(1000px) rotateY(-12deg) translateX(-11px);opacity:.15}to{transform:none;opacity:1}}
+/* Audio sobre la propia página narrada, nunca debajo del libro. */
+#reader-dialog .reading-audio{
+  position:absolute;z-index:12;left:50%;bottom:15px;transform:translateX(-50%);
+  width:min(91%,340px);display:grid;grid-template-columns:auto minmax(42px,1fr) auto;
+  align-items:center;gap:9px;padding:8px;border:1px solid #aaa;border-radius:4px;
+  background:rgba(255,255,255,.97);box-shadow:0 7px 25px #0003;color:#161616;
+}
+#reader-dialog .reading-play{border:1px solid #111;border-radius:2px;background:#111;color:#fff;padding:9px 10px;font:600 11px/1 sans-serif;cursor:pointer;white-space:nowrap}
+#reader-dialog .reading-progress{height:8px;border-radius:6px;background:#ddd;cursor:pointer;overflow:hidden;outline-offset:5px}
+#reader-dialog .reading-progress span{display:block;height:100%;width:0;background:#111}
+#reader-dialog .reading-time{font:600 11px/1.2 monospace;white-space:nowrap}
+#reader-dialog .reader-end-card{width:min(100%,450px);height:100%;display:grid;align-items:end;justify-items:center;background:linear-gradient(180deg,#fff8,#111d),url('../assets/bak.jpg') center/contain no-repeat #111;overflow:hidden;box-shadow:0 7px 22px #0002}
+#reader-dialog .reader-end-overlay{width:100%;text-align:center;color:#fff;padding:25px 20px;background:linear-gradient(180deg,transparent,#111c 18%,#111F);}
+#reader-dialog .reader-end-kicker{font:600 10px/1.4 monospace;letter-spacing:.13em;text-transform:uppercase}
+#reader-dialog .reader-end-card h3{font:600 clamp(26px,3vw,37px)/1.12 Georgia,serif;margin:12px 0}
+#reader-dialog .reader-end-card p{font:14px/1.5 Arial,sans-serif;max-width:32ch;margin:10px auto 22px}
+#reader-dialog .reader-end-card button{font-size:12px}
+@media(max-width:650px){
+  #reader-dialog{width:calc(100vw - 12px);max-height:92dvh}
+  #reader-dialog .open-book{height:min(83dvh,760px);max-height:83dvh;display:block;overflow:hidden}
+  #reader-dialog .book-inside{display:none}
+  #reader-dialog .book-page{height:100%;border-radius:5px}
+  #reader-dialog .reader-opening-cover{width:100%;border-radius:5px;transform-origin:left center}
+  #reader-dialog .reader-close{right:3px;top:-38px}
+  #reader-dialog .reader-page-viewport{padding:6px 35px}
+  #reader-dialog .reader-page-arrow{width:30px;height:45px;font-size:29px}
+  #reader-dialog .reader-page-prev{left:2px}
+  #reader-dialog .reader-page-next{right:2px}
+  #reader-dialog .reading-audio{top:10px;bottom:auto;width:min(96%,290px);gap:6px;padding:6px}
+  #reader-dialog .reading-play{padding:8px 7px;font-size:10px}
+  #reader-dialog .reader-end-overlay{padding:19px 15px}
+}
+@media(max-width:355px){#reader-dialog .reader-page-viewport{padding-inline:30px}#reader-dialog .reader-page-arrow{width:25px}}
+@media(prefers-reduced-motion:reduce){
+ #reader-dialog .reader-opening-cover.opening{animation-duration:.01ms}
+ #reader-dialog .reader-page-sheet{animation-duration:.01ms!important}
+ .hero-book-interactive,.hero-book-interactive .hero-book,.hero-book-interactive .hero-hover-video{transition-duration:.01ms!important}
+}
+
+/* Dos ajustes puntuales: cubierta original en color y llegada mediante zoom. */
+#reader-dialog .book-inside img,
+#reader-dialog .reader-opening-cover img{filter:none!important}
+#reader-dialog.reader-zooming .open-book{opacity:0}
+#reader-dialog .reader-zoom-proxy{
+  display:block;position:fixed;z-index:80;pointer-events:none;
+  max-width:none;max-height:none;object-fit:contain;object-position:center;
+  background:#111;filter:none!important;box-shadow:0 15px 35px #0005;
+  will-change:left,top,width,height;transform:translateZ(0);
+}
+#reader-dialog.reader-zooming::backdrop{
+  animation:mz-reader-backdrop-enter .64s ease-out both;
+}
+@keyframes mz-reader-backdrop-enter{
+  from{background:rgba(5,5,5,.1);backdrop-filter:blur(0)}
+  to{background:#050505e8;backdrop-filter:blur(6px)}
+}
+@media(prefers-reduced-motion:reduce){
+ #reader-dialog.reader-zooming::backdrop{animation:none}
+}

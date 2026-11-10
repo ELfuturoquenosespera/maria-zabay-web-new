@@ -24,6 +24,7 @@
 <link rel="preload" as="image" href="assets/maria-zabay-escaleras.jpg" fetchpriority="high" />
 <link rel="stylesheet" href="css/miseria-redisenyo.css" />
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://miseria.mariazabay.com/#website","url":"https://miseria.mariazabay.com/","name":"Miseria · María Zabay","inLanguage":"es"},{"@type":"WebPage","@id":"https://miseria.mariazabay.com/#webpage","url":"https://miseria.mariazabay.com/","name":"Miseria — María Zabay","description":"Miseria, de María Zabay. Una novela sobre el poder y quienes viven de él: herencia, corrupción, deseo y lealtad en el Madrid contemporáneo.","inLanguage":"es","isPartOf":{"@id":"https://miseria.mariazabay.com/#website"},"mainEntity":{"@id":"https://miseria.mariazabay.com/#book"}},{"@type":"Person","@id":"https://www.mariazabay.com/#maria-zabay","name":"María Zabay","url":"https://www.mariazabay.com/","sameAs":["https://www.instagram.com/maria_zabay/"]},{"@type":"Book","@id":"https://miseria.mariazabay.com/#book","name":"Miseria","url":"https://miseria.mariazabay.com/","description":"Una novela sobre el poder y quienes viven de él.","image":"https://miseria.mariazabay.com/assets/front.jpg","author":{"@id":"https://www.mariazabay.com/#maria-zabay"},"inLanguage":"es","isbn":"979-13-87811-17-4","numberOfPages":268,"publisher":{"@type":"Organization","name":"Conrad Berenice"}}]}</script>
+<link rel="stylesheet" href="css/miseria-lector-y-portada.css" />
 </head>
 <body>
 <a href="#contenido" style="position:absolute;top:-60px;left:12px;z-index:100;padding:12px;background:#fff;color:#111" onfocus="this.style.top='8px'" onblur="this.style.top='-60px'">Saltar al contenido</a>
@@ -39,7 +40,10 @@
   <div class="hero-portrait"><img src="assets/maria-zabay-escaleras.jpg" alt="María Zabay sentada en unas escaleras, fotografía en blanco y negro" fetchpriority="high" /></div>
   <div class="hero-copy">
    <div class="hero-intro">María Zabay · Nueva novela / 2026</div>
-   <img class="hero-book" src="assets/miseria-hero.png" alt="Portada original del libro Miseria, de María Zabay" fetchpriority="high" />
+   <button class="hero-book-interactive" id="hero-book-interactive" type="button" aria-label="Ver el vídeo de Miseria" title="Pasa el ratón para ver el vídeo; pulsa para reproducirlo con controles">
+    <img class="hero-book" src="assets/miseria-hero.png" alt="Portada original del libro Miseria, de María Zabay" fetchpriority="high" />
+    <video class="hero-hover-video" id="hero-hover-video" aria-hidden="true" muted loop playsinline preload="metadata" poster="assets/miseria-hero.png"><source src="assets/videomiseriahero.mp4" type="video/mp4"></video>
+   </button>
    <div class="hero-bottom"><h1 class="hero-headline" id="hero-label">Una novela sobre el poder y quienes viven de él.</h1><p class="hero-subhead">Una vida envidiable. Un hombre que la desprecia.</p><p class="hero-quote">«Una novela impactante, sorprenderá». <span>JULIA NAVARRO</span></p></div>
   </div>
   <a class="hero-scroll" href="#historia">DESLIZAR PARA DESCUBRIR ↓</a>
@@ -60,7 +64,7 @@
   <div class="parallax-rule"></div><div class="two-col"><div><div class="eyebrow">SINOPSIS</div><h2 class="section-title small">Heredar un imperio y descubrir su precio.</h2><p class="pull-inline">«Cuando todo puede comprarse, la verdad se convierte en el activo más peligroso».</p></div><div><p class="body-copy">Alonso Vega de Saliente, heredero del imperio de infraestructuras PUENTIA, afronta la repentina muerte de su padre. En un entorno de opulencia y cinismo, la desaparición del patriarca desencadena revelaciones sobre el origen turbio de la fortuna familiar.</p><p class="body-copy">Entre una OPA hostil, las investigaciones de la UCO y relaciones donde el deseo también es poder, Alonso descubre que la corrupción reside tanto en los balances financieros como en los vínculos afectivos.</p></div></div>
   <div class="theme-grid"><article class="theme-card surface"><span class="index">I / 04</span><div><h3>El poder</h3><p>Quien controla la sala puede descubrir que también forma parte del decorado.</p></div></article><article class="theme-card surface"><span class="index">II / 04</span><div><h3>La herencia</h3><p>Un apellido abre todas las puertas y puede ser la única de la que no se escapa.</p></div></article><article class="theme-card surface"><span class="index">III / 04</span><div><h3>El deseo</h3><p>Atracción, desafío, dependencia y dominio: otra forma de negociación.</p></div></article><article class="theme-card surface"><span class="index">IV / 04</span><div><h3>La conciencia</h3><p>El conflicto empieza cuando sobrevivir exige parecerse a aquello que se desprecia.</p></div></article></div>
  </section>
- <section class="section shell" id="primera-pagina"><div class="chapter">03 / LEER UN FRAGMENTO</div><div class="feature-split"><div><h2 class="section-title small">Alonso desde la primera línea.</h2><p class="quote-excerpt">«El día que murió mi padre yo derramaba mi simiente en una becaria con mirada de hambre, escogida más por su complacencia que por su carne. No fue amor, ni sexo, ni deseo. Fue soberbia, hastío; una mugre ceremonial que apenas me mantuvo erecto mientras el móvil vibraba con la noticia…»</p><div class="feature-actions"><a class="btn ink arrow" href="assets/Miseria_primeras_paginas_web.pdf" target="_blank" rel="noopener">Leer las primeras páginas</a><a class="text-link" href="assets/audio/lecturaprimerapagina.mp3" data-media="narration">Oír primera página ↗</a></div><p class="muted" style="font-size:12px;margin-top:20px">Puedes leer el fragmento en PDF y escuchar la primera página aquí mismo.</p></div><a href="assets/Miseria_primeras_paginas_web.pdf" target="_blank" rel="noopener" class="feature-cover" aria-label="Abrir las primeras páginas de Miseria"><img src="assets/front.jpg" alt="Portada frontal de Miseria" loading="lazy" /></a></div></section>
+ <section class="section shell" id="primera-pagina"><div class="chapter">03 / LEER UN FRAGMENTO</div><div class="feature-split"><div><h2 class="section-title small">Alonso desde la primera línea.</h2><p class="quote-excerpt">«El día que murió mi padre yo derramaba mi simiente en una becaria con mirada de hambre, escogida más por su complacencia que por su carne. No fue amor, ni sexo, ni deseo. Fue soberbia, hastío; una mugre ceremonial que apenas me mantuvo erecto mientras el móvil vibraba con la noticia…»</p><div class="feature-actions"><button class="btn ink arrow" id="open-reader" type="button">Leer las primeras páginas</button><button class="text-link" id="listen-first-page" type="button">Oír primera página ↗</button></div><p class="muted" style="font-size:12px;margin-top:20px">Pulsa sobre el libro para abrirlo y pasar sus páginas. <a class="pdf-alternative" href="assets/Miseria_primeras_paginas_web.pdf" target="_blank" rel="noopener">También disponible en PDF ↗</a></p></div><button class="feature-cover" id="open-reader-cover" type="button" aria-label="Abrir el libro en 3D y leer las primeras páginas de Miseria"><img src="assets/front.jpg" alt="Portada frontal de Miseria" loading="lazy" /></button></div></section>
  <section class="section shell" id="audio"><div class="chapter">04 / EN AUDIO Y VÍDEO</div><h2 class="section-title">Dos formas de descubrir Miseria.</h2><p class="deck">Un vistazo a la novela y un debate sobre las apariencias, el poder y las miserias que se esconden detrás de una vida aparentemente completa.</p><p class="body-copy muted">Dos piezas inspiradas en la novela, pensadas para acercarse a ella sin destripar la historia.</p><div class="media-grid"><article class="surface media-card"><div><span class="eyebrow">PIEZA 01 / VÍDEO</span><h3>¿De qué va?</h3><p>Una introducción breve a Miseria para descubrir de qué va la novela sin revelar la historia.</p></div><div class="media-meta"><span class="small-mono">VER EN ESTA WEB</span><a class="text-link" data-media="video" href="assets/video-resumen.mp4">Abrir reproducción ↗</a></div></article><article class="surface media-card"><div><span class="eyebrow">PIEZA 02 / DEBATE</span><h3>Debate.</h3><p>Las apariencias, el poder y las miserias que se esconden detrás de una vida aparentemente completa.</p></div><div class="media-meta"><span class="small-mono">VER EN ESTA WEB</span><a class="text-link" data-media="debate" href="assets/audio/debate.mp3">Abrir reproducción ↗</a></div></article></div></section>
  <section class="section shell" id="personajes"><div class="chapter">05 / LOS PERSONAJES</div><h2 class="section-title">Todos orbitan alrededor del poder.</h2><p class="deck">Ninguno sale intacto.</p><div class="tab-list" id="characterTabs" role="tablist" aria-label="Seleccionar personaje"><button class="tab" id="char-tab-0" role="tab" aria-controls="characterPanel" aria-selected="true" data-char="0">Alonso</button><button class="tab" id="char-tab-1" role="tab" aria-controls="characterPanel" aria-selected="false" data-char="1">Isabel</button><button class="tab" id="char-tab-2" role="tab" aria-controls="characterPanel" aria-selected="false" data-char="2">Mónica</button><button class="tab" id="char-tab-3" role="tab" aria-controls="characterPanel" aria-selected="false" data-char="3">Hugo</button><button class="tab" id="char-tab-4" role="tab" aria-controls="characterPanel" aria-selected="false" data-char="4">Rodrigo</button><button class="tab" id="char-tab-5" role="tab" aria-controls="characterPanel" aria-selected="false" data-char="5">Paco Monreal</button></div><div id="characterPanel" class="character-panel surface" role="tabpanel" tabindex="0" aria-labelledby="char-tab-0"><div class="character-label" id="cRole">El heredero</div><div><h3 class="character-title" id="cTitle">Un hombre que lo tiene todo. Excepto el control.</h3><p class="character-body" id="cText">Alonso observa el mundo con sarcasmo y desprecio, pero pertenece exactamente al universo que juzga. Inteligente, privilegiado y acostumbrado a mandar, empieza a descubrir que heredar un imperio también significa heredar aquello que lo hizo posible.</p><div class="character-secret" id="cSecret">Lo que teme: Parecerse demasiado a su padre.</div></div></div></section>
  <section class="section shell" id="medios"><div class="chapter">06 / LA RECEPCIÓN</div><h2 class="section-title">Miseria, en los medios.</h2><p class="deck">Prensa, radio, televisión y nuevas conversaciones alrededor del libro.</p><div class="press-grid"><a class="surface press-card" href="prensa/prensa-escrita.html" target="_blank" rel="noopener"><span class="eyebrow">01 / MEDIOS</span><h3>Prensa escrita.</h3><span class="arrow-symbol">↗</span></a><a class="surface press-card" href="prensa/radio-y-television.html" target="_blank" rel="noopener"><span class="eyebrow">02 / MEDIOS</span><h3>Radio y televisión.</h3><span class="arrow-symbol">↗</span></a><a class="surface press-card" href="prensa/blog-y-podcast.html" target="_blank" rel="noopener"><span class="eyebrow">03 / MEDIOS</span><h3>Blog y podcast.</h3><span class="arrow-symbol">↗</span></a></div></section>
@@ -94,11 +98,48 @@
 <audio id="mediaAudio" controls preload="none" hidden></audio>
 <video id="mediaVideo" controls playsinline preload="none" poster="assets/video-miseria-poster.webp" hidden></video>
 </dialog>
+
+<!-- Visor del libro recuperado de la web original de Miseria. -->
+<dialog id="reader-dialog" class="reader-dialog" aria-label="Leer las primeras páginas de Miseria">
+ <button id="close-reader" class="reader-close" type="button" aria-label="Cerrar el libro">×</button>
+ <div class="open-book" id="open-book">
+  <div class="book-inside" aria-hidden="true"><img src="assets/front.jpg" alt="" /></div>
+  <div class="reader-opening-cover" id="reader-opening-cover" aria-hidden="true"><img src="assets/front.jpg" alt="" /></div>
+  <div class="book-page">
+   <div class="reader-page-viewport" id="reader-page-viewport">
+    <button id="reader-page-prev" class="reader-page-arrow reader-page-prev" type="button" aria-label="Página anterior">‹</button>
+    <div class="reader-page-sheet" id="reader-page-sheet">
+     <div class="reader-page-leaf">
+      <img id="reader-page-image" src="assets/primeras-paginas/pagina-01.png" alt="Página 1 del avance de Miseria" />
+      <div id="reading-audio-bar" class="reading-audio" hidden>
+       <button id="reading-play" class="reading-play" type="button" aria-label="Reproducir narración de la página">Oír lectura</button>
+       <div id="reading-progress" class="reading-progress" role="slider" tabindex="0" aria-label="Progreso del audio" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="reading-progress-fill"></span></div>
+       <span class="reading-time" id="reading-time">0:00</span>
+       <audio id="reading-audio" src="assets/audio/lecturaprimerapagina.mp3" preload="metadata"></audio>
+      </div>
+     </div>
+     <div class="reader-end-card" id="reader-end-card" hidden>
+      <div class="reader-end-overlay"><p class="reader-end-kicker">Has llegado al final del avance</p><h3>Para seguir leyendo</h3><p>Descubre la novela completa y adéntrate en el universo de <em>Miseria</em>.</p><button class="btn ink" id="reader-end-buy" type="button">Comprar la novela</button></div>
+     </div>
+    </div>
+    <button id="reader-page-next" class="reader-page-arrow reader-page-next" type="button" aria-label="Página siguiente">›</button>
+   </div>
+   <nav class="reader-pages-nav" aria-label="Navegación por las páginas del libro"><button id="reader-prev-bottom" type="button" aria-label="Página anterior">←</button><span id="reader-page-count" aria-live="polite">1 / 10</span><button id="reader-next-bottom" type="button" aria-label="Página siguiente">→</button></nav>
+  </div>
+ </div>
+</dialog>
+<!-- Modal del vídeo original de la portada. -->
+<dialog class="hero-video-dialog" id="hero-video-dialog" aria-label="Vídeo de Miseria">
+ <button id="hero-video-close" class="hero-video-close" type="button" aria-label="Cerrar vídeo">×</button>
+ <video id="hero-video-player" controls playsinline preload="metadata" poster="assets/miseria-hero.png"><source src="assets/videomiseriahero.mp4" type="video/mp4">Tu navegador no puede reproducir este vídeo.</video>
+</dialog>
+
 <div class="mz-cookie" id="cookie-banner" role="dialog" aria-label="Preferencias de privacidad" hidden>
  <div><strong>Privacidad y cookies</strong><p>Utilizamos almacenamiento técnico y, solo si aceptas, cookies analíticas. Puedes cambiar tu elección en cualquier momento. <a href="politica-de-cookies.html">Más información</a>.</p></div>
  <div class="mz-cookie-actions"><button class="btn" id="cookie-reject" type="button">Rechazar</button><button class="btn ink" id="cookie-accept" type="button">Aceptar</button></div>
 </div>
 <script src="js/privacy.js" defer></script>
 <script src="js/miseria-redisenyo.js" defer></script>
+<script src="js/miseria-lector-y-portada.js" defer></script>
 </body>
 </html>
