@@ -1,0 +1,10 @@
+MISERIA — ajustes de cubierta y apertura, 10 noviembre 2026.
+
+Esta es la versión completa basada en MISERIA_REDENSENO_CON_VIDEO_Y_LIBRO_3D.
+Solo se han modificado:
+  css/miseria-lector-y-portada.css — la cubierta del libro del visor recupera su color original; estilo del zoom.
+  js/miseria-lector-y-portada.js — efecto de ampliación desde la portada al visor antes de abrirla en 3D.
+
+Los textos interiores del libro se conservan en blanco y negro.
+La cabecera, el vídeo, la prensa, la navegación, el SEO y las páginas legales permanecen intactos.
+El efecto de movimiento respeta la preferencia de accesibilidad de reducir animaciones.

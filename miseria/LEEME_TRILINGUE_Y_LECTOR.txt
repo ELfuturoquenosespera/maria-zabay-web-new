@@ -1,0 +1,44 @@
+MISERIA — WEB EN ESPAÑOL, FRANCÉS E INGLÉS + LECTOR 3D
+Actualización: 10 de noviembre de 2026
+
+PUBLICACIÓN
+Sube todos los archivos y carpetas al directorio público de miseria.mariazabay.com.
+La página principal es index.html. Las otras dos son index-fr.html e index-eng.html.
+El selector de banderas se encuentra en la cabecera de cada landing.
+
+CAMBIOS
+1) En la cabecera, la portada abre el mismo libro interactivo al pasar el ratón (con una espera breve para no activarse accidentalmente). En móvil, se abre al pulsar.
+2) El libro se abre directamente por «MUERTE», que corresponde a pagina-08.png del conjunto original. Con las flechas se puede avanzar al texto siguiente y retroceder a las páginas preliminares.
+3) Se intenta iniciar automáticamente la narración de esa página. Los navegadores pueden bloquear el sonido al abrir con solo pasar el ratón; en ese caso aparece el botón de reproducción. El usuario puede cerrar el lector en cualquier momento.
+4) La portada de la sección «Alonso desde la primera línea», su botón y el libro de la sección final abren el mismo visor 3D.
+5) Se ha reducido el tamaño del texto citado en la sección de Alonso.
+6) Las tres landings comparten estructura, recursos y funcionalidades; el inglés y el francés incluyen traducciones de textos, interacciones de personajes, metadatos SEO y etiquetas hreflang.
+7) La cubierta del libro sigue en color. Se conserva el diseño editorial anterior.
+
+IDIOMAS
+- index.html: español.
+- index-fr.html: francés.
+- index-eng.html: inglés.
+El contenido audiovisual, las páginas impresas de la novela y las fichas de prensa permanecen en su idioma original (español). Se informa de ello en las dos páginas traducidas.
+Las políticas legales se mantienen en español tal como estaban: NO han sido traducidas.
+
+ARCHIVOS MODIFICADOS O AÑADIDOS
+- index.html (modificado)
+- index-fr.html (nuevo)
+- index-eng.html (nuevo)
+- css/miseria-multilingue.css (nuevo)
+- js/miseria-i18n.js (nuevo)
+- js/miseria-redisenyo.js (modificado para traducir los personajes)
+- js/miseria-lector-y-portada.js (modificado para unificar el lector)
+- sitemap.xml (modificado)
+- LEEME_TRILINGUE_Y_LECTOR.txt (nuevo)
+
+Las imágenes, archivos de audio, vídeo, documentos PDF, páginas de prensa y políticas originales no se han cambiado.
+
+COMPROBACIONES
+- Validación sintáctica de JS.
+- Enlaces a recursos locales, navegación por anclas y rutas HTML/CSS: 247 rutas comprobadas, sin recursos ausentes.
+- XML sitemap analizado, tres URLs de idioma con referencias cruzadas.
+- Este entorno ha bloqueado la prueba automatizada con navegador (no permite navegar por páginas locales). Por eso NO se afirma una comprobación visual interactiva final. Antes de publicar conviene revisar la apertura en ordenador y móvil.
+
+NOTA DE AUDIO: el inicio automático con sonido depende de la política del navegador. El control para pulsar Play siempre está presente.
