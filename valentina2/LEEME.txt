@@ -1,0 +1,41 @@
+VALENTINA · MARÍA ZABAY — WEB AMPLIADA
+
+BASE Y DISEÑO
+Se ha mantenido valentina(1).rar como base, sin rehacer la cabecera.
+Se ha sustituido el fondo cálido por blanco limpio. Los azules, el coral y el rosa conservan el carácter de la cubierta.
+
+ARCHIVOS PRINCIPALES
+index.html — página principal (incluye prensa, vídeo adicional, bibliografía).
+prensa/prensa-escrita.html — hemeroteca de prensa escrita.
+prensa/radio-y-television.html — entrevistas audiovisuales.
+prensa/podcast.html — entrevistas de audio.
+css/styles.css — todos los estilos.
+js/app.js — navegación, fundido del libro con vídeo, filtros y animaciones.
+assets/img — imágenes de la web.
+assets/libros — portadas de los otros libros de María Zabay.
+assets/video — vídeo original de cabecera, su variante y pieza audiovisual adicional.
+assets/dosier.pdf y assets/heraldo.pdf — materiales de prensa del RAR de referencia.
+
+PUBLICACIÓN
+Subir TODO el contenido de esta carpeta a la raíz del alojamiento o a una subcarpeta.
+Abrir index.html. Los enlaces internos son relativos y no requieren servidor de aplicaciones.
+Evitar renombrar carpetas y archivos si no se actualizan los enlaces.
+
+IMPORTANTE ANTES DE PUBLICAR
+- Revisar URLs finales de dominio/canonical y OG en el index.
+- Confirmar que el dominio/URL de Miseria es el definitivo antes de enlazarlo.
+- Completar los datos del titular en aviso-legal.html y politica-de-privacidad.html.
+- Las portadas de otras obras SIN sitio propio no tienen enlaces ficticios: se activarán cuando estén disponibles.
+- Comprobar que los vídeos y las imágenes están autorizados para su difusión pública.
+
+RECURSOS AÑADIDOS
+Del RAR «valentian maria»: 3 páginas de prensa como referencia de estructura, dosier, recorte de Heraldo, 12 portadas, vídeo audiovisual.
+Del RAR «valentina imagenes»: fotografía de María sosteniendo Valentina; otras imágenes disponibles en assets/recursos-adicionales.
+
+ACTUALIZACIÓN: «DESCUBRE VALENTINA» — 10/11/2026
+- Nueva sección antes de la biografía de María Zabay: lectura interactiva y dosier de prensa.
+- El lector muestra las páginas originales 9 y 10 del capítulo «Una latina de Queens» al pulsar la portada.
+- Para ampliar una página, pulsa sobre ella.
+- El dosier de prensa se abre o descarga desde la misma sección. Sigue disponible en «En los medios».
+- Recursos añadidos: assets/primeras-paginas/pagina-09.png y pagina-10.png; assets/img/dosier-portada.webp.
+- El resto de la web, incluida cabecera con vídeo, medios y bibliografía, se mantiene.

@@ -1,0 +1,12 @@
+ENLACES FUTUROS DE OTROS LIBROS
+
+Las tarjetas aparecen en el HTML de index.html, dentro de la sección id="otros-libros".
+Busca el atributo data-book-slug del libro que quieras activar.
+En las tarjetas pendientes, sustituye <div class="library-book" ...> por
+<a class="library-book linked-book" href="https://DOMINIO-DEL-LIBRO" target="_blank" rel="noopener noreferrer" ...>
+y el cierre </div> por </a>.
+Cambia el texto «Página individual pendiente» por «Visitar su web ↗».
+No hay enlaces falsos ni redirecciones inventadas.
+
+Miseria: enlazada provisionalmente al dominio que figuraba en el RAR de referencia
+https://miseria.mariazabay.com/ — confirmar antes de publicar.
