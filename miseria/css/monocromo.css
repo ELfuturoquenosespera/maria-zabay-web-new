@@ -1,0 +1,202 @@
+/* MISERIA · Blanco y negro · Diseño intacto
+   Cambio limitado a la paleta y al tratamiento cromático de imágenes y vídeos.
+   Para recuperar los colores, basta con usar los CSS originales sin esta capa. */
+:root {
+  color-scheme: light;
+  --paper: #fff;
+  --soft: #fff;
+  --night: #fff;
+  --ink: #111;
+  --muted: #444;
+  --red: #111;
+  --red-dark: #333;
+  --line: #ccc;
+  --mc-paper: #111;
+  --mc-muted: #555;
+  --mc-gold: #111;
+  --mc-gold-light: #111;
+}
+html, body, body.press-subpage { background-color: #fff !important; color: #111 !important; }
+::selection { background: #161616; color:#fff; }
+:focus-visible { outline-color: #111 !important; }
+/* La fotografía y el audiovisual se muestran monocromos sin alterar los originales. */
+img, video, iframe, picture, canvas, svg { filter: grayscale(1) !important; }
+.hero-cover, .final-book, .press-page-hero__book img {
+  filter: grayscale(1) drop-shadow(0 20px 26px rgba(0,0,0,.25)) !important;
+}
+body .reader-cover img { filter:grayscale(1) !important; }
+/* Fondos de página: mismas secciones y tamaños; superficie blanca. */
+body .nav, body .hero, body .promise, body .dark-line, body .cinema,
+body .trailer, body .trailer-inner, body .atmosphere-copy, body .story,
+body .first-page, body .audio-world, body #miseria-characters,
+body .character, body .press, body .author-section, body .details,
+body .final, body .press-room, body footer,
+body.press-subpage .press-subnav,
+body.press-subpage .press-page-hero,
+body.press-subpage .press-page-main,
+body.press-subpage .press-page-footer {
+  background: #fff !important;
+  background-image: none !important;
+  color: #111 !important;
+}
+/* La navegación blanca conserva su posición y comportamiento. */
+body .nav { border-bottom: 1px solid #e3e3e3; box-shadow: 0 4px 25px rgba(0,0,0,.045); }
+body .nav .wordmark, body .nav .nav-links a, body .nav .menu,
+body .press-subnav .wordmark, body .press-subnav__links a,
+body .press-page-footer, body .press-page-footer a { color: #111 !important; }
+body .menu { background:#fff !important; border:1px solid #111 !important; }
+@media (max-width: 900px) {
+  body .nav-links { background:#fff !important; color:#111 !important; border:1px solid #dedede; box-shadow:0 15px 35px #0002; }
+  body .nav-links > a {color:#111 !important;}
+}
+/* Todas las cabeceras y los bloques narrativos recuperan tinta oscura. */
+body .hero, body .hero *, body .dark-line, body .dark-line *,
+body .cinema, body .cinema *, body .audio-world, body .audio-world *,
+body .press, body .press *, body .final, body .final *,
+body .trailer-inner, body .trailer-inner *, body #miseria-characters,
+body #miseria-characters *, body .press-page-hero,
+body .press-page-hero *, body .press-subnav *, body .press-page-footer * {
+  color: #111;
+}
+body .eyebrow, body .section-no, body .scroll, body .hero-quote,
+body .hero-quote cite, body .hero-sub, body .signals,
+body .dark-line-quote, body .dark-line h2 span, body .dark-line p,
+body .cinema-head p, body .cinema-line, body .trailer-head p,
+body .audio-intro h2 em, body .audio-intro>p,
+body .audio-note, body .press-head p, body .press-type,
+body .press-card h3, body .press-card p, body .final p,
+body .press-page-kicker, body .press-page-eyebrow, body .press-page-hero__intro,
+body .author-press-quote cite, body .atmosphere-heading,
+body #miseria-characters .mc-role, body #miseria-characters .mc-secret span {
+  color: #111 !important;
+}
+body .hero h1 em, body .promise h2 em, body .quote, body .theme b,
+body .story-copy p, body .opening-quote { color:#111 !important; }
+body .hero-visual::before,
+body .trailer-inner::before, body .audio-world::after,
+body .audio-world::before, body #miseria-characters::after,
+body .press-page-hero__book::before,
+body .press-card::after { background:rgba(0,0,0,.055) !important; }
+body .reader-cover::before {background:rgba(0,0,0,.12) !important;}
+body .author-portrait::before {background:#111 !important;}
+/* Recuadros: blancos, filetes negros y las sombras que ya les dan relieve. */
+body .press-card, body .atmosphere-card, body .audio-player,
+body .press-material-card, body .press-material-card-pending,
+body .press-room-placeholder, body .press-room-images,
+body .press-image-viewer, body .press-dossier-preview,
+body .press-access-shell, body .author-press-quote,
+body .press-page-entry, body .press-page-empty,
+body .press-page-entry__inside, body .press-page-empty__inside,
+body .press-page-entry__media, body .press-page-entry__media--image,
+body .audio-tabs, body .shop-option, body .purchase-dialog,
+body .legal-card, body .cookie-banner,
+body .atmosphere-card p {
+  background:#fff !important;
+  background-image:none !important;
+  color:#111 !important;
+  border-color:#252525 !important;
+}
+body .press-card, body .atmosphere-card,
+body .press-material-card, body .press-page-entry, body .press-page-empty,
+body .author-press-quote {
+  border:1px solid #111 !important;
+  box-shadow:0 10px 28px rgba(0,0,0,.09) !important;
+}
+body .press-card:hover, body .atmosphere-card:hover,
+body .press-page-entry:hover, body .author-press-quote:hover {
+  box-shadow:0 15px 35px rgba(0,0,0,.16) !important;
+  border-color:#000 !important;
+}
+body .atmosphere-card::after, body .press-material-card::after,
+body .press-page-hero__book::before {border-color:#111 !important;}
+body .press-card *, body .audio-player *, body .press-page-entry *,
+body .press-page-empty *, body .press-material-card *,
+body .atmosphere-card *, body .author-press-quote *,
+body .press-room-images *, body .press-room-placeholder *,
+body .press-image-viewer * {color:#111;}
+/* Títulos y enlaces pasan del oro y el cobre al negro. */
+body .press-grid .press-card--link h3,
+body .press-grid .press-card--link .press-card__action,
+body .press-grid .press-card--link:hover h3,
+body .press-page-entry__meta, body .press-page-entry__link,
+body .press-page-return, body .press-section-nav a,
+body .press-page-eyebrow, body .press-material-type,
+body .press-room-section-kicker, body .press-image-viewer-close:hover,
+body .press-image-actions .press-image-thumb > span span,
+body .press-note-lead, body .press-access-kicker, body .author-press-heading,
+body .press-image-download-fallback {color:#111 !important;}
+body .press-section-nav a {border-color:#111 !important; background:#fff !important;}
+body .press-section-nav a[aria-current="page"],
+body .press-section-nav a:hover {background:#f0f0f0 !important;}
+body .press-page-empty__mark { background:#111 !important; }
+/* Botones destacados: negro sólido y letras blancas, con hover gris oscuro. */
+body .buy, body .final .buy, body .press-dossier-download,
+body .press-material-download:not(.is-disabled),
+body .press-image-download, body .press-room-tab.is-active,
+body .press-access-row button, body .press-dossier-fallback a,
+body .audio-play, body .reading-play,
+body .audio-tab.active, body #miseria-characters .mc-tab[aria-selected="true"],
+body .cookie-primary, body .shop-option:hover,
+body .first-page-download:hover {
+  background:#111 !important;
+  background-image:none !important;
+  border-color:#111 !important;
+  color:#fff !important;
+}
+body .buy:hover, body .final .buy:hover, body .press-dossier-download:hover,
+body .press-material-download:hover, body .press-image-download:hover,
+body .press-access-row button:hover {background:#333 !important; border-color:#333 !important;color:#fff !important;}
+body .buy *, body .final .buy *, body .audio-play *,
+body .reading-play *, body .audio-tab.active *,
+body .press-room-tab.is-active * {color:#fff !important;}
+body .ghost, body .press-access-trigger, body .first-page-download,
+body .press-dossier-open, body .press-material-open,
+body .press-image-view, body .press-room-tab:not(.is-active),
+body .press-image-actions .press-image-thumb,
+body .audio-skip, body .reader-page-arrow,
+body .reader-pages-nav button, body .purchase-close {
+  background:#fff !important;
+  border-color:#111 !important;
+  color:#111 !important;
+}
+body .press-access-trigger:hover, body .ghost:hover, body .press-dossier-open:hover,
+body .press-room-tab:hover:not(.is-active) {background:#efefef !important; color:#111 !important;}
+/* Reproductores, formularios y cuadros superpuestos conservan su funcionalidad. */
+body .audio-tab:not(.active), body .audio-speed select,
+body .audio-volume input[type=range], body .audio-skip,
+body .cookie-secondary, body .cookie-info,
+body .press-access-row input {background:#fff !important;color:#111 !important;border-color:#111 !important;}
+body .audio-kicker, body .audio-description, body .audio-track,
+body .audio-status, body .audio-options, body .audio-volume span,
+body .audio-mute, body .audio-note {color:#444 !important;}
+body .audio-line {background:linear-gradient(90deg,#111 0 var(--audio-progress),#ccc var(--audio-progress) 100%) !important;}
+body .audio-line::before {background:#fff !important;border-color:#111 !important;}
+body .reading-progress {background:#ddd !important;}
+body .reading-progress span {background:#111 !important;box-shadow:0 0 12px #0004 !important;}
+body .reader-dialog, body .summary-video-dialog, body .hero-video-dialog {background:#fff !important;color:#111 !important;}
+body .reader-dialog::backdrop, body .summary-video-dialog::backdrop,
+body .hero-video-dialog::backdrop, body .press-access-dialog::backdrop,
+body .legal-dialog::backdrop, body .purchase-dialog::backdrop,
+body .press-image-viewer::backdrop {background:rgba(0,0,0,.75) !important;}
+body .reader-close, body .summary-video-close, body .hero-video-close,
+body .legal-close, body .press-image-viewer-close {background:#111 !important;color:#fff !important;border-color:#111 !important;}
+body .reading-audio {background:#fff !important;color:#111 !important;box-shadow:0 10px 28px #0002 !important;}
+body .reader-page-viewport {background:#f3f3f3 !important;}
+body .reader-pages-nav {background:#f5f5f5 !important;color:#111 !important;}
+body .book-page, body .reader-page-sheet img {background:#fff !important;}
+body .book-inside {background:#111 !important; color:#fff !important;}
+body .book-inside * {color:#fff !important;}
+body .reader-end-card {background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.75)) !important;}
+body .reader-end-overlay {background:linear-gradient(180deg,transparent,rgba(0,0,0,.9)) !important;color:#fff !important;}
+body .reader-end-overlay * {color:#fff !important;}
+body .cookie-banner {border:1px solid #111 !important; box-shadow:0 18px 50px #0003 !important;}
+body .cookie-banner *, body .legal-card * {color:#111;}
+body .cookie-primary, body .cookie-primary * {color:#fff !important;}
+body .video-shell, body .summary-video-frame, body .hero-video-frame,
+body .summary-video-frame video, body .hero-video-frame video {background:#000 !important;}
+body .press-room-tab:hover:not(.is-active) {color:#111 !important;}
+/* La versión móvil conserva el tamaño original de cada sección y cada carta. */
+@media (max-width:680px) {
+  body .audio-world::before, body .audio-world::after {background:transparent !important;}
+  body .audio-intro h2, body .audio-intro>p, body .audio-note {text-shadow:none !important;}
+}
