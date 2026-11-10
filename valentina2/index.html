@@ -205,16 +205,15 @@
           <article class="discover-book-card reveal" aria-labelledby="discover-book-heading">
             <div class="discover-card-top"><span>01 / LEE UN FRAGMENTO</span><span>EL LIBRO</span></div>
             <div class="discover-book-interior">
-              <button type="button" class="discover-book-trigger" id="discover-book-trigger" aria-expanded="false" aria-controls="discover-reading" aria-label="Abrir el libro Valentina para leer las primeras páginas">
+              <button type="button" class="discover-book-trigger" id="discover-book-trigger" aria-expanded="false" aria-controls="valentina-reader" aria-haspopup="dialog" aria-label="Abrir el libro Valentina para leer las primeras páginas">
                 <span class="discover-book-shell" aria-hidden="true"><img src="assets/img/valentina-portada-original.png" alt="" width="552" height="838" loading="lazy" decoding="async"></span>
-                <span class="discover-book-opened" aria-hidden="true"><span>09 <i>—</i> 10</span><small>PRIMERAS PÁGINAS</small></span>
                 <span class="discover-book-action"><span id="discover-open-label">Abrir el libro</span><span aria-hidden="true">↗</span></span>
               </button>
               <div class="discover-book-copy">
                 <span class="discover-small-label">UNA PÍCARA EN MANHATTAN</span>
                 <h3 id="discover-book-heading">Lee las primeras <em>páginas.</em></h3>
                 <p>Un primer encuentro con Valentina, su mundo y la voz de una protagonista empeñada en salir adelante.</p>
-                <p class="discover-interaction-hint" id="discover-interaction-hint">Pulsa sobre la cubierta para abrir el libro.</p>
+                <p class="discover-interaction-hint" id="discover-interaction-hint">Pulsa la portada para abrir el libro y leerlo aquí.</p>
               </div>
             </div>
           </article>
@@ -233,14 +232,6 @@
               </div>
             </div>
           </article>
-        </div>
-        <div class="discover-reading" id="discover-reading" hidden aria-label="Primeras páginas de la novela Valentina">
-          <div class="discover-reading-heading"><div><span class="discover-small-label">UN ADELANTO DE LA NOVELA</span><h3>Una latina de Queens</h3></div><button type="button" class="discover-close" id="discover-close">Cerrar el libro <span aria-hidden="true">×</span></button></div>
-          <div class="discover-spread">
-            <a href="assets/primeras-paginas/pagina-09.png" target="_blank" rel="noopener noreferrer" aria-label="Abrir página 9 ampliada en otra pestaña"><img src="assets/primeras-paginas/pagina-09.png" alt="Página 9 de Valentina, inicio del capítulo Una latina de Queens" width="660" height="1190" loading="eager" decoding="async"></a>
-            <a href="assets/primeras-paginas/pagina-10.png" target="_blank" rel="noopener noreferrer" aria-label="Abrir página 10 ampliada en otra pestaña"><img src="assets/primeras-paginas/pagina-10.png" alt="Página 10 de Valentina, continuación del capítulo Una latina de Queens" width="660" height="1190" loading="eager" decoding="async"></a>
-          </div>
-          <p class="discover-page-note">Pulsa sobre una página si quieres verla ampliada.</p>
         </div>
       </div>
     </section>
@@ -271,6 +262,43 @@
   </main>
 
   <footer class="site-footer"><div class="page-container"><div class="footer-top"><div class="footer-brand"><span>Valentina<span class="footer-dot">.</span></span><small>UNA NOVELA DE MARÍA ZABAY</small></div><div class="footer-links"><a href="#historia">La novela</a><a href="#medios">En los medios</a><a href="#descubre">Lee Valentina</a><a href="#otros-libros">Otros libros</a><a href="https://www.mariazabay.com/" target="_blank" rel="noopener noreferrer">María Zabay ↗</a><a href="https://miseria.mariazabay.com/" target="_blank" rel="noopener noreferrer">Miseria ↗</a></div></div><div class="footer-bottom"><p>© <span id="current-year">2026</span> · Valentina, de María Zabay. Diseño editorial independiente.</p><div><a href="politica-de-privacidad.html">Privacidad</a><a href="aviso-legal.html">Aviso legal</a><button type="button" id="copy-url" class="link-button">Compartir esta página ↗</button></div></div></div></footer>
+
+  <!-- Lector de Valentina: apertura de libro inspirada en la web original de María. -->
+  <dialog class="valentina-reader" id="valentina-reader" aria-labelledby="reader-title" aria-describedby="reader-description">
+    <div class="reader-shell">
+      <header class="reader-header">
+        <div class="reader-titlegroup">
+          <span class="reader-kicker">UNA PÍCARA EN MANHATTAN · UN ADELANTO</span>
+          <h2 id="reader-title">Lee <em>Valentina.</em></h2>
+          <p id="reader-description">Primeras páginas: «Una latina de Queens»</p>
+        </div>
+        <button type="button" class="reader-close-button" id="reader-close" aria-label="Cerrar el libro">Cerrar <span aria-hidden="true">×</span></button>
+      </header>
+      <div class="reader-stage" id="reader-stage" aria-label="Páginas de la novela">
+        <div class="reader-spread" id="reader-spread">
+          <div class="reader-page is-active" data-page="0">
+            <img src="assets/primeras-paginas/pagina-09.png" width="660" height="1190" alt="Página 9 de Valentina: comienzo del capítulo Una latina de Queens" decoding="async">
+          </div>
+          <div class="reader-page" data-page="1">
+            <img src="assets/primeras-paginas/pagina-10.png" width="660" height="1190" alt="Página 10 de Valentina: continuación del capítulo Una latina de Queens" decoding="async">
+          </div>
+        </div>
+        <div class="reader-opening-cover" aria-hidden="true">
+          <img src="assets/img/valentina-portada-original.png" width="552" height="838" alt="">
+        </div>
+      </div>
+      <footer class="reader-footer">
+        <p class="reader-instruction">Un fragmento de la novela · páginas 9 y 10.</p>
+        <nav class="reader-pager" aria-label="Navegar entre las páginas del libro">
+          <button type="button" class="reader-page-button" id="reader-prev" disabled aria-label="Ir a la página anterior"><span aria-hidden="true">←</span> Anterior</button>
+          <span class="reader-page-indicator" id="reader-position" aria-live="polite">Página 9 de 10</span>
+          <button type="button" class="reader-page-button" id="reader-next" aria-label="Ir a la página siguiente">Siguiente <span aria-hidden="true">→</span></button>
+        </nav>
+        <button type="button" class="reader-zoom-button" id="reader-zoom" aria-pressed="false">Ampliar <span aria-hidden="true">＋</span></button>
+      </footer>
+    </div>
+  </dialog>
+
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script defer src="js/app.js"></script>
 </body>

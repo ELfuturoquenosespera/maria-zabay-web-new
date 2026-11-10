@@ -32,10 +32,14 @@ RECURSOS AÑADIDOS
 Del RAR «valentian maria»: 3 páginas de prensa como referencia de estructura, dosier, recorte de Heraldo, 12 portadas, vídeo audiovisual.
 Del RAR «valentina imagenes»: fotografía de María sosteniendo Valentina; otras imágenes disponibles en assets/recursos-adicionales.
 
-ACTUALIZACIÓN: «DESCUBRE VALENTINA» — 10/11/2026
+VERSIÓN DE LECTURA: «DESCUBRE VALENTINA» — 10/11/2026
 - Nueva sección antes de la biografía de María Zabay: lectura interactiva y dosier de prensa.
 - El lector muestra las páginas originales 9 y 10 del capítulo «Una latina de Queens» al pulsar la portada.
-- Para ampliar una página, pulsa sobre ella.
+- En móviles, el lector se abre a pantalla completa y muestra una sola página; «Siguiente» y «Anterior» permiten cambiar de página y «Ampliar» deja desplazar el texto a mayor tamaño.
+- En escritorio, el libro se abre en una ventana central y permite leer las dos páginas a la vez.
+- La animación de la cubierta se ha recuperado del concepto de apertura de la web original de María; se respeta la preferencia del sistema de reducir animaciones.
+- Pulsa «Cerrar», la tecla Escape o fuera de la ventana para volver al punto exacto de la web.
+- El libro ya no se despliega debajo de la sección (esto evitaba que se viera al abrirlo en móvil).
 - El dosier de prensa se abre o descarga desde la misma sección. Sigue disponible en «En los medios».
 - Recursos añadidos: assets/primeras-paginas/pagina-09.png y pagina-10.png; assets/img/dosier-portada.webp.
 - El resto de la web, incluida cabecera con vídeo, medios y bibliografía, se mantiene.

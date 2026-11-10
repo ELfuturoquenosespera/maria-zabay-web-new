@@ -142,28 +142,92 @@
     });
   }
 
-  // Lectura interactiva: una cubierta que se abre y revela las páginas interiores.
-  // Conservamos el PDF de prensa accesible también desde la sección Medios.
+  // Lector del fragmento: ventana centrada, giro de portada y una página por vez
+  // en móvil. Evitamos que el libro se abra fuera de la zona visible.
   const readerTrigger = doc.getElementById('discover-book-trigger');
-  const readerPages = doc.getElementById('discover-reading');
-  const readerClose = doc.getElementById('discover-close');
-  const readerLabel = doc.getElementById('discover-open-label');
+  const readerDialog = doc.getElementById('valentina-reader');
+  const readerClose = doc.getElementById('reader-close');
+  const readerPrev = doc.getElementById('reader-prev');
+  const readerNext = doc.getElementById('reader-next');
+  const readerZoom = doc.getElementById('reader-zoom');
+  const readerStage = doc.getElementById('reader-stage');
+  const readerPosition = doc.getElementById('reader-position');
   const readerHint = doc.getElementById('discover-interaction-hint');
-  if (readerTrigger && readerPages && readerClose) {
-    function setReader(open, returnFocus = false) {
-      readerPages.hidden = !open;
-      readerTrigger.classList.toggle('is-reading', open);
-      readerTrigger.setAttribute('aria-expanded', String(open));
-      readerTrigger.setAttribute('aria-label', open ? 'Cerrar el libro Valentina' : 'Abrir el libro Valentina para leer las primeras páginas');
-      if (readerLabel) readerLabel.textContent = open ? 'Cerrar el libro' : 'Abrir el libro';
-      if (readerHint) readerHint.textContent = open ? 'Las primeras páginas están abiertas justo debajo.' : 'Pulsa sobre la cubierta para abrir el libro.';
-      if (returnFocus) readerTrigger.focus({ preventScroll: true });
+  const readerPages = Array.from(doc.querySelectorAll('.reader-page'));
+
+  if (readerTrigger && readerDialog && readerClose && readerPages.length === 2) {
+    let currentPage = 0;
+    let lastFocus = null;
+    const mobileReader = window.matchMedia('(max-width: 700px)');
+    const motionReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    function setZoom(enabled) {
+      readerStage.classList.toggle('is-zoomed', enabled);
+      readerZoom.setAttribute('aria-pressed', String(enabled));
+      readerZoom.innerHTML = enabled ? 'Ajustar <span aria-hidden="true">−</span>' : 'Ampliar <span aria-hidden="true">＋</span>';
+      readerPages.forEach(page => { page.scrollTop = 0; page.scrollLeft = 0; });
     }
-    readerTrigger.addEventListener('click', () => setReader(readerPages.hidden));
-    readerClose.addEventListener('click', () => setReader(false, true));
-    readerPages.addEventListener('keydown', e => {
-      if (e.key === 'Escape') setReader(false, true);
+    function setPage(index) {
+      currentPage = Math.min(readerPages.length - 1, Math.max(0, index));
+      readerPages.forEach((page, i) => page.classList.toggle('is-active', i === currentPage));
+      readerPosition.textContent = `Página ${currentPage + 9} de 10`;
+      readerPrev.disabled = currentPage === 0;
+      readerNext.disabled = currentPage === readerPages.length - 1;
+      setZoom(false);
+    }
+    function openReader() {
+      if (readerDialog.open) return;
+      lastFocus = doc.activeElement;
+      setPage(0);
+      readerDialog.showModal();
+      doc.body.classList.add('reader-is-open');
+      readerTrigger.setAttribute('aria-expanded', 'true');
+      readerTrigger.setAttribute('aria-label', 'Libro Valentina abierto');
+      readerDialog.classList.remove('reader-animated');
+      // Reinicia el giro de la cubierta al volver a abrir el libro.
+      void readerDialog.offsetWidth;
+      readerDialog.classList.add('reader-animated');
+      readerClose.focus({ preventScroll: true });
+      if (readerHint) readerHint.textContent = 'El libro está abierto en el lector.';
+    }
+    function closeReader() {
+      if (readerDialog.open) readerDialog.close();
+    }
+    readerTrigger.addEventListener('click', openReader);
+    readerClose.addEventListener('click', closeReader);
+    readerDialog.addEventListener('close', () => {
+      doc.body.classList.remove('reader-is-open');
+      readerTrigger.setAttribute('aria-expanded', 'false');
+      readerTrigger.setAttribute('aria-label', 'Abrir el libro Valentina para leer las primeras páginas');
+      readerDialog.classList.remove('reader-animated');
+      setZoom(false);
+      if (readerHint) readerHint.textContent = 'Pulsa la portada para abrir el libro y leerlo aquí.';
+      if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus({ preventScroll: true });
     });
+    readerDialog.addEventListener('click', event => {
+      // Se puede cerrar pulsando el exterior de la ventana.
+      if (event.target === readerDialog) closeReader();
+    });
+    readerPrev.addEventListener('click', () => setPage(currentPage - 1));
+    readerNext.addEventListener('click', () => setPage(currentPage + 1));
+    readerZoom.addEventListener('click', () => setZoom(!readerStage.classList.contains('is-zoomed')));
+    readerDialog.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight' && mobileReader.matches) { e.preventDefault(); setPage(currentPage + 1); }
+      if (e.key === 'ArrowLeft' && mobileReader.matches) { e.preventDefault(); setPage(currentPage - 1); }
+    });
+    let touchX = null;
+    readerStage.addEventListener('touchstart', e => {
+      if (!mobileReader.matches || readerStage.classList.contains('is-zoomed') || e.touches.length !== 1) return;
+      touchX = e.touches[0].clientX;
+    }, { passive: true });
+    readerStage.addEventListener('touchend', e => {
+      if (touchX === null || !mobileReader.matches || readerStage.classList.contains('is-zoomed')) return;
+      const dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 70) setPage(currentPage + (dx < 0 ? 1 : -1));
+      touchX = null;
+    }, { passive: true });
+    mobileReader.addEventListener('change', () => setZoom(false));
+    if (motionReduced.matches) readerDialog.classList.add('reader-reduced-motion');
   }
 
   // Compartir o copiar URL desde el propio navegador.
