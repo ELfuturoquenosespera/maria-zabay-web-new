@@ -1,0 +1,19 @@
+/* Ajustes puntuales de la versión trilingüe; no se modifica el rediseño. */
+.language-switch{display:flex;align-items:center;gap:5px;flex:none;margin-left:auto;padding-left:12px}
+.language-switch a{display:inline-flex;align-items:center;justify-content:center;width:33px;height:33px;border:1px solid transparent;border-radius:3px;font-size:19px;line-height:1;text-decoration:none;filter:saturate(.82);transition:background .2s,border .2s,transform .2s}
+.language-switch a:hover,.language-switch a:focus-visible{border-color:#bbb;background:#f1f1f1;transform:translateY(-2px)}
+.language-switch a[aria-current="page"]{border-color:#111;background:#f5f5f5;filter:none}
+/* El párrafo del día que murió su padre recupera una escala editorial discreta. */
+#primera-pagina .quote-excerpt{font-size:clamp(16px,1.5vw,22px);line-height:1.62;letter-spacing:-.012em;max-width:630px}
+/* Portada final: mismo aspecto, ahora botón funcional del visor. */
+.final-book-trigger{display:block;width:100%;border:0;padding:0;margin:0;background:transparent;cursor:pointer;text-align:inherit}
+.final-book-trigger .final-book{transition:transform .35s ease}
+.final-book-trigger:hover .final-book{transform:scale(1.025)}
+.final-book-trigger:focus-visible{outline:2px solid #111;outline-offset:6px}
+@media(max-width:1220px){.language-switch{margin-left:auto}}
+@media(max-width:640px){.language-switch{gap:0;padding-left:0;margin-left:auto}.language-switch a{width:29px;height:29px;font-size:16px}.site-header{gap:7px}.header-actions{gap:4px}.site-header .brand{flex:none}}
+@media(max-width:355px){.language-switch a{width:26px;height:27px;font-size:15px}}
+
+#reader-dialog .reader-language-note{position:relative;margin:9px 4px 0;color:#fff;font:11px/1.4 system-ui,sans-serif;text-align:center;letter-spacing:.012em}
+.translation-note{font-size:12px;line-height:1.4;margin:18px 0 8px}
+#primera-pagina .translation-note{margin-top:12px}

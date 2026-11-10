@@ -3,22 +3,21 @@
 (() => {
  'use strict';
  const hero=document.getElementById('hero-book-interactive');
- const heroHover=document.getElementById('hero-hover-video');
- const heroDialog=document.getElementById('hero-video-dialog');
- const heroFull=document.getElementById('hero-video-player');
- const canHover=window.matchMedia('(hover: hover) and (pointer: fine)');
- function stopHover(){hero.classList.remove('is-playing');heroHover.pause();try{heroHover.currentTime=0}catch(e){}}
- function startHover(){if(!canHover.matches||heroDialog.open)return;hero.classList.add('is-playing');heroHover.play().catch(()=>{});}
- function openHero(){stopHover();if(!heroDialog.open)heroDialog.showModal();heroFull.play().catch(()=>{});}
- function closeHero(){heroFull.pause();try{heroFull.currentTime=0}catch(e){}if(heroDialog.open)heroDialog.close();}
- hero.addEventListener('pointerenter',startHover);
- hero.addEventListener('pointerleave',stopHover);
- hero.addEventListener('click',openHero);
- document.getElementById('hero-video-close').addEventListener('click',closeHero);
- heroDialog.addEventListener('click',e=>{if(e.target===heroDialog)closeHero()});
- heroDialog.addEventListener('close',()=>{heroFull.pause();heroFull.currentTime=0;});
- document.addEventListener('visibilitychange',()=>{if(document.hidden)stopHover()});
-
+ const canHover=window.matchMedia('(hover:hover) and (pointer:fine)');
+ let heroTimer=null,heroHoverBlocked=false;
+ // El giro abre el mismo lector que las secciones de Alonso y de la llamada final.
+ // El retraso corto evita aperturas accidentales al cruzar el ratón.
+ hero?.addEventListener('pointerenter',()=>{
+   if(!canHover.matches||heroHoverBlocked)return;
+   clearTimeout(heroTimer);
+   heroTimer=setTimeout(()=>{
+      if(!hero.matches(':hover')||heroHoverBlocked)return;
+      heroHoverBlocked=true;
+      openReader(7,true,hero.querySelector('.hero-book'));
+   },380);
+ });
+ hero?.addEventListener('pointerleave',()=>{clearTimeout(heroTimer);if(!document.getElementById('reader-dialog').open)heroHoverBlocked=false;});
+ hero?.addEventListener('click',()=>{clearTimeout(heroTimer);heroHoverBlocked=true;openReader(7,true,hero.querySelector('.hero-book'));});
  const dialog=document.getElementById('reader-dialog');
  const pageImage=document.getElementById('reader-page-image');
  const pageSheet=document.getElementById('reader-page-sheet');
@@ -36,18 +35,19 @@
  const progress=document.getElementById('reading-progress');
  const progressFill=document.getElementById('reading-progress-fill');
  const time=document.getElementById('reading-time');
+ const R=window.MISERIA_I18N?.reader||{};
  const pages=Array.from({length:9},(_,i)=>`assets/primeras-paginas/pagina-${String(i+1).padStart(2,'0')}.png`);
  const total=pages.length+1;
  let current=0,turning=false,touchStart=null;
  pages.forEach(src=>{const img=new Image();img.src=src});
  const format=seconds=>`${Math.floor(seconds/60)}:${String(Math.floor(seconds%60)).padStart(2,'0')}`;
- function setPlayLabel(){play.textContent=audio.paused?'Oír lectura':'Pausar lectura';}
+ function setPlayLabel(){play.textContent=audio.paused?(R.play||'Oír lectura'):(R.pause||'Pausar lectura');}
  function update(){
    const final=current===pages.length;
    pageImage.hidden=final;
    endCard.hidden=!final;
-   if(!final){pageImage.src=pages[current];pageImage.alt=`Página ${current+1} de las primeras páginas de Miseria`;}
-   pageCount.textContent=final?`Final / ${total}`:`${current+1} / ${total}`;
+   if(!final){pageImage.src=pages[current];pageImage.alt=`${R.page||'Página'} ${current+1} — Miseria`;}
+   pageCount.textContent=final?`${R.end||'Final'} / ${total}`:(current>=7?`${R.chapter||'MUERTE'} · ${current-6} / 2`:`${R.prelim||'Preliminares'} · ${current+1} / 7`);
    [prev,prevBottom].forEach(b=>b.disabled=current===0);
    [next,nextBottom].forEach(b=>b.disabled=current===total-1);
    const audioPage=!final&&current===7;
@@ -121,12 +121,13 @@
    },160);
    setTimeout(()=>{pageSheet.classList.remove('arrive-forward','arrive-back');turning=false},405);
  }
- document.getElementById('open-reader').addEventListener('click',e=>openReader(0,false,zoomOriginCover));
- document.getElementById('open-reader-cover').addEventListener('click',e=>openReader(0,false,zoomOriginCover));
+ document.getElementById('open-reader').addEventListener('click',e=>openReader(7,true,zoomOriginCover));
+ document.getElementById('open-reader-cover').addEventListener('click',e=>openReader(7,true,zoomOriginCover));
+ document.getElementById('open-reader-final')?.addEventListener('click',e=>openReader(7,true,e.currentTarget.querySelector('img')));
  document.getElementById('listen-first-page').addEventListener('click',e=>openReader(7,true,e.currentTarget));
  document.getElementById('close-reader').addEventListener('click',closeReader);
  dialog.addEventListener('click',e=>{if(e.target===dialog)closeReader()});
- dialog.addEventListener('close',()=>{readerOpeningId++;clearZoom();audio.pause();audio.currentTime=0;setPlayLabel();current=0;turning=false;pageSheet.className='reader-page-sheet';update()});
+ dialog.addEventListener('close',()=>{heroHoverBlocked=true;setTimeout(()=>{if(!hero?.matches(':hover'))heroHoverBlocked=false},90);readerOpeningId++;clearZoom();audio.pause();audio.currentTime=0;setPlayLabel();current=0;turning=false;pageSheet.className='reader-page-sheet';update()});
  [prev,prevBottom].forEach(b=>b.addEventListener('click',()=>turn(-1)));
  [next,nextBottom].forEach(b=>b.addEventListener('click',()=>turn(1)));
  dialog.addEventListener('keydown',e=>{if(!dialog.open)return;if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();turn(e.key==='ArrowRight'?1:-1)}});
@@ -134,7 +135,7 @@
  viewport.addEventListener('touchend',e=>{if(touchStart===null)return;const delta=(e.changedTouches[0]?.clientX??touchStart)-touchStart;touchStart=null;if(Math.abs(delta)>55)turn(delta<0?1:-1)},{passive:true});
  play.addEventListener('click',()=>{if(audio.paused){audio.play().then(setPlayLabel).catch(setPlayLabel)}else{audio.pause();setPlayLabel()}});
  audio.addEventListener('timeupdate',()=>{const pct=audio.duration?Math.min(100,Math.max(0,audio.currentTime/audio.duration*100)):0;progressFill.style.width=`${pct}%`;progress.setAttribute('aria-valuenow',String(Math.round(pct)));time.textContent=format(audio.currentTime)});
- audio.addEventListener('ended',()=>{play.textContent='Oír de nuevo'});
+ audio.addEventListener('ended',()=>{play.textContent=R.again||'Oír de nuevo'});
  function seek(fraction){if(audio.duration)audio.currentTime=Math.max(0,Math.min(1,fraction))*audio.duration}
  progress.addEventListener('click',e=>{const r=progress.getBoundingClientRect();seek((e.clientX-r.left)/r.width)});
  progress.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();seek((audio.currentTime+(e.key==='ArrowRight'?5:-5))/(audio.duration||1))}});

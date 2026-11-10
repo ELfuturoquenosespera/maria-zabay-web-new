@@ -1,4 +1,4 @@
-const chars=[
+const chars=window.MISERIA_I18N?.characters||[
  {role:'El heredero',title:'Un hombre que lo tiene todo. Excepto el control.',body:'Alonso observa el mundo con sarcasmo y desprecio, pero pertenece exactamente al universo que juzga. Inteligente, privilegiado y acostumbrado a mandar, empieza a descubrir que heredar un imperio también significa heredar aquello que lo hizo posible.',secret:'Lo que teme: Parecerse demasiado a su padre.'},
  {role:'La esposa',title:'La mujer que permanece no siempre es la que se resigna.',body:'Isabel conoce las reglas del mundo de Alonso y el precio de sostener una familia dentro de él. Durante años, él ha confundido su discreción con fragilidad y su permanencia con una certeza. Pero hay silencios que no significan obediencia.',secret:'Lo que teme: Que todavía le importe.'},
  {role:'La ambición',title:'Quiere que la elijan. No perdona que no lo hagan.',body:'Mónica vive indignada por ocupar siempre un lugar secundario. Necesita ser reconocida, mostrada, elegida. Mientras ese momento no llega, convierte la atención, el deseo y todo cuanto sabe en armas para impedir que nadie pueda apartarla.',secret:'Lo que teme: Seguir siendo la mujer a la que esconden.'},
@@ -30,7 +30,7 @@ function stopMedia(){
 }
 document.querySelectorAll('[data-media]').forEach(link=>link.addEventListener('click',event=>{
  event.preventDefault();const item=mediaMap[link.dataset.media];if(!item)return;
- stopMedia();mediaTitle.textContent=item.title;
+ stopMedia();mediaTitle.textContent=window.MISERIA_I18N?.media?.[link.dataset.media]||item.title;
  const el=item.kind==='video'?mediaVideo:mediaAudio;
  el.hidden=false;el.src=item.src;mediaDialog.showModal();
  el.play().catch(()=>{});
