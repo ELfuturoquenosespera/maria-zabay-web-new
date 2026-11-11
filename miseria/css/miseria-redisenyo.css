@@ -21,3 +21,46 @@ dialog{border:1px solid #111;box-shadow:0 25px 90px #0003;padding:clamp(28px,6vw
 .mz-cookie{position:fixed;z-index:1000;left:16px;right:16px;bottom:16px;max-width:1050px;margin-inline:auto;background:#fff;color:#111;border:1px solid #111;box-shadow:0 14px 50px #0002;padding:20px 24px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center}
 .mz-cookie[hidden]{display:none!important}.mz-cookie p{font-size:13px;line-height:1.5;margin:0}.mz-cookie strong{font-size:13px;display:block;margin-bottom:5px}.mz-cookie a{text-decoration:underline}.mz-cookie-actions{display:flex;gap:10px}.mz-cookie-actions button{min-width:102px}
 @media(max-width:690px){.mz-cookie{grid-template-columns:1fr;gap:13px;padding:18px}.mz-cookie-actions{display:grid;grid-template-columns:1fr 1fr}.mz-cookie-actions .btn{padding:12px 15px}}
+
+/* Ajustes finales de citas y libro Alonso */
+.critics-grid{
+  gap:10px;
+  align-items:stretch;
+}
+.critic{
+  padding:26px 28px 24px;
+  display:flex;
+  flex-direction:column;
+  min-height:332px;
+}
+.critic p{
+  font:clamp(16px,1.55vw,23px)/1.45 Georgia,serif;
+  margin:0;
+  flex:1 1 auto;
+}
+.critic cite{
+  display:block;
+  margin-top:22px;
+  font:700 clamp(13px,1.1vw,16px)/1.35 ui-monospace,monospace;
+  letter-spacing:.09em;
+  font-style:normal;
+  text-transform:none;
+}
+#primera-pagina .feature-cover{
+  background:transparent;
+  border:none;
+  box-shadow:none;
+  padding:0;
+  min-height:auto;
+}
+#primera-pagina .feature-cover[type="button"]{
+  border:none;
+}
+#primera-pagina .feature-cover img{
+  box-shadow:0 18px 30px rgba(0,0,0,.16);
+}
+@media (max-width:900px){
+  .critics-grid{gap:8px;}
+  .critic{min-height:0;padding:24px 22px 22px;}
+  .critic cite{margin-top:18px;}
+}
