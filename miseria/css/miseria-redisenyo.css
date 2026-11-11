@@ -28,19 +28,19 @@ dialog{border:1px solid #111;box-shadow:0 25px 90px #0003;padding:clamp(28px,6vw
   align-items:stretch;
 }
 .critic{
-  padding:26px 28px 24px;
+  padding:21px 25px 20px;
   display:flex;
   flex-direction:column;
-  min-height:332px;
+  min-height:0;
 }
 .critic p{
-  font:clamp(16px,1.55vw,23px)/1.45 Georgia,serif;
+  font:clamp(16px,1.55vw,23px)/1.37 Georgia,serif;
   margin:0;
   flex:1 1 auto;
 }
 .critic cite{
   display:block;
-  margin-top:22px;
+  margin-top:11px;
   font:700 clamp(13px,1.1vw,16px)/1.35 ui-monospace,monospace;
   letter-spacing:.09em;
   font-style:normal;
@@ -61,6 +61,26 @@ dialog{border:1px solid #111;box-shadow:0 25px 90px #0003;padding:clamp(28px,6vw
 }
 @media (max-width:900px){
   .critics-grid{gap:8px;}
-  .critic{min-height:0;padding:24px 22px 22px;}
-  .critic cite{margin-top:18px;}
+  .critic{min-height:0;padding:20px 21px 19px;}
+  .critic cite{margin-top:11px;}
+}
+
+
+/* Ritmo editorial más compacto en toda la landing (ES, FR, EN).
+   Las tarjetas mantienen su orden y las firmas una línea base común por fila. */
+.section { padding-block: clamp(50px, 5.5vw, 84px); }
+.chapter { margin-bottom: clamp(20px, 2.2vw, 32px); }
+.section-title { margin-bottom: clamp(19px, 2.25vw, 30px); }
+.spacer-h { height: 38px; }
+.parallax-rule { margin-block: 34px; }
+.theme-grid { margin-top: 42px; }
+.press-grid { margin-top: 42px; }
+.tab-list { margin-top: 30px; }
+@media (max-width: 640px) {
+  .section { padding-block: 54px; }
+  .parallax-rule { margin-block: 27px; }
+  .spacer-h { height: 28px; }
+  .chapter { margin-bottom: 21px; }
+  .section-title { margin-bottom: 21px; }
+  .theme-grid { margin-top: 28px; }
 }

@@ -24,7 +24,7 @@
 .hero-preview-front img{display:block;width:100%;height:100%;object-fit:contain;filter:none;backface-visibility:hidden;}
 /* Solo los dispositivos con ratón abren la tapa al pasar el cursor.
    Clic o toque siguen abriendo el lector completo, desde MUERTE. */
-@media(hover:hover) and (pointer:fine){
+@media(min-width:901px) and (hover:hover) and (pointer:fine){
  .hero-book-interactive:hover .hero-book{opacity:0}
  .hero-book-interactive:hover .hero-preview-book{opacity:1}
  .hero-book-interactive:hover .hero-preview-front{transform:rotateY(-153deg)}
@@ -69,4 +69,20 @@
 }
 @media(prefers-reduced-motion:reduce){
  .hero-preview-book,.hero-preview-front,.hero-book-interactive .hero-book{transition:none!important}
+}
+
+
+/* Corrección móvil: el hover emulado por algunos navegadores no debe
+   ocultar la portada cuando la previsualización 3D está desactivada.
+   En pantallas táctiles, un toque abre el lector a página MUERTE. */
+@media (max-width:900px), (hover:none), (pointer:coarse) {
+  .hero-book-interactive .hero-book,
+  .hero-book-interactive:hover .hero-book {
+    opacity:1 !important;
+  }
+  .hero-book-interactive .hero-preview-book,
+  .hero-book-interactive:hover .hero-preview-book {
+    display:none !important;
+    opacity:0 !important;
+  }
 }
