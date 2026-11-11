@@ -43,3 +43,59 @@
   .theme-card p{font-size:10px}
 }
 @media(prefers-reduced-motion:reduce){.media-card-button:hover,#primera-pagina .feature-cover:hover img{transform:none}}
+
+/* Portada de Alonso: tamaño mayor + vídeo del baile encajado dentro de la
+   cara frontal del libro. No hay recuadro ni fondo alrededor de la portada. */
+#primera-pagina .feature-cover{
+  position:relative;display:flex;align-items:center;justify-content:center;
+  background:transparent;border:none;box-shadow:none;padding:0;min-height:0;
+  perspective:1200px;overflow:visible;
+}
+#primera-pagina .feature-book-figure{
+  position:relative;display:block;width:min(100%,465px);aspect-ratio:1153 / 1364;
+  isolation:isolate;transform-style:preserve-3d;
+  filter:drop-shadow(11px 19px 17px rgba(0,0,0,.19));
+  transition:filter .35s ease;
+}
+#primera-pagina .feature-book-figure > img{
+  position:absolute;inset:0;width:100%;height:100%;max-height:none;
+  display:block;object-fit:fill;box-shadow:none!important;filter:none;
+  transition:transform .7s cubic-bezier(.2,.65,.2,1),opacity .5s ease;
+}
+#primera-pagina .feature-book-base{z-index:0;}
+#primera-pagina .feature-book-flap{
+  z-index:2;transform-origin:20% 50%;transform:rotateY(0deg);opacity:1;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+}
+#primera-pagina .feature-book-film{
+  position:absolute;z-index:1;left:19.7%;top:5.8%;width:65%;height:86.6%;
+  display:block;overflow:hidden;background:#111;opacity:0;
+  clip-path:polygon(0% 3.1%,100% 0%,100% 99.3%,0% 100%);
+  transition:opacity .52s ease .13s;
+  pointer-events:none;
+}
+#primera-pagina .feature-dance-preview{
+  display:block;width:100%;height:100%;object-fit:cover;object-position:center;
+  filter:none;
+}
+@media(hover:hover) and (pointer:fine){
+  #primera-pagina .feature-cover:hover .feature-book-film{opacity:1;}
+  #primera-pagina .feature-cover:hover .feature-book-flap{
+    transform:perspective(1000px) rotateY(-42deg) translateX(-7%);
+    opacity:0;
+  }
+}
+@media(max-width:900px){
+  #primera-pagina .feature-book-figure{width:min(100%,425px);}
+}
+@media(max-width:640px){
+  #primera-pagina .feature-book-figure{width:min(100%,340px);}
+}
+@media(hover:none), (pointer:coarse){
+  #primera-pagina .feature-cover .feature-book-film{opacity:0;}
+  #primera-pagina .feature-cover .feature-book-flap{opacity:1;transform:none;}
+}
+@media(prefers-reduced-motion:reduce){
+  #primera-pagina .feature-book-figure > img,
+  #primera-pagina .feature-book-film{transition:none!important;}
+}

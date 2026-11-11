@@ -3,9 +3,9 @@
 .hero-book-interactive{perspective:1400px;overflow:visible;}
 .hero-book-interactive .hero-book{position:relative;z-index:1;transition:opacity .26s ease;}
 .hero-preview-book{
-  position:absolute;z-index:2;left:19%;top:2%;width:66%;height:93%;
+  position:absolute;z-index:2;left:19%;top:5%;width:66%;height:83%;
   perspective:1450px;transform-style:preserve-3d;opacity:0;pointer-events:none;
-  transition:opacity .22s ease;filter:drop-shadow(10px 18px 18px rgba(0,0,0,.2));
+  transition:opacity .22s ease,transform .75s cubic-bezier(.22,.65,.2,1);transform:translateX(0);filter:drop-shadow(10px 18px 18px rgba(0,0,0,.2));
 }
 .hero-preview-sheet,.hero-preview-front{position:absolute;inset:0;display:block;overflow:hidden}
 .hero-preview-sheet{
@@ -26,8 +26,8 @@
    Clic o toque siguen abriendo el lector completo, desde MUERTE. */
 @media(min-width:901px) and (hover:hover) and (pointer:fine){
  .hero-book-interactive:hover .hero-book{opacity:0}
- .hero-book-interactive:hover .hero-preview-book{opacity:1}
- .hero-book-interactive:hover .hero-preview-front{transform:rotateY(-153deg)}
+ .hero-book-interactive:hover .hero-preview-book{opacity:1;transform:translateX(clamp(28px,6vw,80px))}
+ .hero-book-interactive:hover .hero-preview-front{transform:rotateY(-118deg)}
 }
 /* La frase conserva exactamente la posición vertical/ángulo del enlace anterior. */
 .hero .hero-scroll{white-space:nowrap;font-size:clamp(9px,.7vw,10px);letter-spacing:.015em;}
@@ -85,4 +85,19 @@
     display:none !important;
     opacity:0 !important;
   }
+}
+
+/* La tapa conserva la lectura correcta al cerrarse y al abrirse muestra
+   el cartón interior: evita que el título de la portada aparezca en espejo. */
+.hero-preview-front{overflow:visible;}
+.hero-preview-cover-face,
+.hero-preview-inside{
+  position:absolute;inset:0;width:100%;height:100%;display:block;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+}
+.hero-preview-front .hero-preview-cover-face{object-fit:fill;transform:translateZ(1px);}
+.hero-preview-inside{
+  transform:rotateY(180deg) translateZ(1px);
+  background:linear-gradient(90deg,#eee9e2 0%,#fffdf9 14%,#f4f0eb 100%);
+  border:1px solid #d6cec7;box-shadow:inset -6px 0 15px #0001;
 }

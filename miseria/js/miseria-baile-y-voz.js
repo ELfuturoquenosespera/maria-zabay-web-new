@@ -4,6 +4,20 @@
  'use strict';
  const trigger=document.getElementById('open-reader-cover');
  const dialog=document.getElementById('dance-dialog');
+ const preview=trigger?.querySelector('.feature-dance-preview');
+ const finePointer=window.matchMedia('(hover:hover) and (pointer:fine)');
+ if(trigger&&preview){
+   preview.muted=true; preview.defaultMuted=true; preview.volume=0;
+   trigger.addEventListener('pointerenter',()=>{
+     if(!finePointer.matches)return;
+     // Navegadores permiten reproducir vídeos silenciados sin acción explícita.
+     preview.play().catch(()=>{});
+   });
+   trigger.addEventListener('pointerleave',()=>{
+     preview.pause();try{preview.currentTime=0}catch{}
+   });
+ }
+
  if(!trigger||!dialog)return;
  const video=document.getElementById('dance-video');
  const audio=document.getElementById('dance-narration');
@@ -34,6 +48,7 @@
    updateUI();
  }
  function open(){
+   if(preview)preview.pause();
    if(!dialog.open)dialog.showModal();
    audio.currentTime=0;
    try{video.currentTime=0;}catch{}
