@@ -22,9 +22,6 @@
 .hero-book-interactive.is-playing .hero-book{opacity:0}
 .hero-book-interactive.is-playing .hero-hover-video{opacity:1;transition-delay:.12s}
 .hero-book-interactive:focus-visible{outline:2px solid #111;outline-offset:8px}
-@media(hover:hover) and (pointer:fine){
-  .hero-book-interactive:hover{transform:translateX(-3%) perspective(1250px) rotateY(-7deg)}
-}
 @media(max-width:900px){.hero-book-interactive{width:clamp(265px,38vw,410px)}}
 @media(max-width:640px){
   .hero-book-interactive{width:min(76vw,330px);max-height:none;align-self:flex-start;transform:none;margin-bottom:10px}

@@ -3,21 +3,8 @@
 (() => {
  'use strict';
  const hero=document.getElementById('hero-book-interactive');
- const canHover=window.matchMedia('(hover:hover) and (pointer:fine)');
- let heroTimer=null,heroHoverBlocked=false;
- // El giro abre el mismo lector que las secciones de Alonso y de la llamada final.
- // El retraso corto evita aperturas accidentales al cruzar el ratón.
- hero?.addEventListener('pointerenter',()=>{
-   if(!canHover.matches||heroHoverBlocked)return;
-   clearTimeout(heroTimer);
-   heroTimer=setTimeout(()=>{
-      if(!hero.matches(':hover')||heroHoverBlocked)return;
-      heroHoverBlocked=true;
-      openReader(7,true,hero.querySelector('.hero-book'));
-   },380);
- });
- hero?.addEventListener('pointerleave',()=>{clearTimeout(heroTimer);if(!document.getElementById('reader-dialog').open)heroHoverBlocked=false;});
- hero?.addEventListener('click',()=>{clearTimeout(heroTimer);heroHoverBlocked=true;openReader(7,true,hero.querySelector('.hero-book'));});
+ // Apertura controlada: solo clic o toque sobre la cubierta.
+ hero?.addEventListener('click',()=>openReader(7,true,hero.querySelector('.hero-book')));
  const dialog=document.getElementById('reader-dialog');
  const pageImage=document.getElementById('reader-page-image');
  const pageSheet=document.getElementById('reader-page-sheet');
@@ -127,7 +114,7 @@
  document.getElementById('listen-first-page').addEventListener('click',e=>openReader(7,true,e.currentTarget));
  document.getElementById('close-reader').addEventListener('click',closeReader);
  dialog.addEventListener('click',e=>{if(e.target===dialog)closeReader()});
- dialog.addEventListener('close',()=>{heroHoverBlocked=true;setTimeout(()=>{if(!hero?.matches(':hover'))heroHoverBlocked=false},90);readerOpeningId++;clearZoom();audio.pause();audio.currentTime=0;setPlayLabel();current=0;turning=false;pageSheet.className='reader-page-sheet';update()});
+ dialog.addEventListener('close',()=>{readerOpeningId++;clearZoom();audio.pause();audio.currentTime=0;setPlayLabel();current=0;turning=false;pageSheet.className='reader-page-sheet';update()});
  [prev,prevBottom].forEach(b=>b.addEventListener('click',()=>turn(-1)));
  [next,nextBottom].forEach(b=>b.addEventListener('click',()=>turn(1)));
  dialog.addEventListener('keydown',e=>{if(!dialog.open)return;if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();turn(e.key==='ArrowRight'?1:-1)}});

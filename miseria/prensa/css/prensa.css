@@ -2829,3 +2829,5 @@ body.press-subpage,
 .press-subpage .press-page-entry:hover{
  box-shadow:0 17px 38px rgba(0,0,0,.20),0 5px 12px rgba(0,0,0,.10);
 }
+
+.press-page-hero__book img{filter:drop-shadow(0 19px 22px #00000099) saturate(1) !important;}

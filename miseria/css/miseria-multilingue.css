@@ -17,3 +17,29 @@
 #reader-dialog .reader-language-note{position:relative;margin:9px 4px 0;color:#fff;font:11px/1.4 system-ui,sans-serif;text-align:center;letter-spacing:.012em}
 .translation-note{font-size:12px;line-height:1.4;margin:18px 0 8px}
 #primera-pagina .translation-note{margin-top:12px}
+
+/* Ajustes definitivos: tarjetas multimedia pulsables en toda su superficie. */
+.cards-only-section .media-grid,.cards-only-section .press-grid{margin-top:0}
+.media-card-button{width:100%;text-align:left;color:inherit;font:inherit;cursor:pointer;appearance:none;-webkit-appearance:none;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.media-card-button:hover{transform:translateY(-4px);box-shadow:0 18px 32px rgba(0,0,0,.12);border-color:#111}
+.media-card-button:focus-visible{outline:3px solid #111;outline-offset:4px}
+.media-card-button h3,.media-card-button p{color:inherit}
+.media-card-button>div{width:100%}
+/* Cuatro tarjetas: títulos en una línea, texto secundario alineado en dos. */
+.theme-card>div{width:100%;display:flex;flex-direction:column;justify-content:flex-end}
+.theme-card h3{font-size:clamp(19px,1.9vw,29px);white-space:nowrap;line-height:1.2;letter-spacing:-.055em;margin-bottom:15px}
+.theme-card p{font-size:13px;line-height:1.5;min-height:3em;display:block}
+.theme-card .desc-line{display:block;white-space:nowrap}
+/* Portada 3D de Alonso: mismo objeto visual que la cabecera y el cierre. */
+#primera-pagina .feature-cover img{width:auto;max-width:100%;max-height:min(440px,42vw);object-fit:contain;box-shadow:none;filter:none;transition:transform .35s ease}
+#primera-pagina .feature-cover:hover img{transform:translateY(-4px)}
+@media(max-width:640px){
+  .theme-card h3{font-size:clamp(16px,4vw,22px)}
+  .theme-card p{font-size:11px;line-height:1.55;min-height:3.1em}
+  #primera-pagina .feature-cover img{max-height:340px}
+}
+@media(max-width:355px){
+  .theme-card h3{font-size:14px}
+  .theme-card p{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){.media-card-button:hover,#primera-pagina .feature-cover:hover img{transform:none}}
