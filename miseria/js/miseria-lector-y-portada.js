@@ -109,7 +109,7 @@
    setTimeout(()=>{pageSheet.classList.remove('arrive-forward','arrive-back');turning=false},405);
  }
  document.getElementById('open-reader').addEventListener('click',e=>openReader(7,true,zoomOriginCover));
- document.getElementById('open-reader-cover').addEventListener('click',e=>openReader(7,true,zoomOriginCover));
+ // El libro de Alonso abre ahora el vídeo del baile con la voz de María (miseria-baile-y-voz.js).
  document.getElementById('open-reader-final')?.addEventListener('click',e=>openReader(7,true,e.currentTarget.querySelector('img')));
  document.getElementById('listen-first-page').addEventListener('click',e=>openReader(7,true,e.currentTarget));
  document.getElementById('close-reader').addEventListener('click',closeReader);
